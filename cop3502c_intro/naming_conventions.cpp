@@ -1,4 +1,4 @@
-/* NAMING CONVENTIONS:
+c
     snake_case: naming variables and constants (preferred for C++)
 
     use all uppercase for constants
