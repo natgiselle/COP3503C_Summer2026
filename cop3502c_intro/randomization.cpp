@@ -40,10 +40,10 @@ int main() {
     cout << "\n\n";
 
     cout << "DICE 2:\n" << "Provide the lowest digit on dice 2 of 2: ";
-    int min_value_2;
+    const short min_value_2;
     cin >> min_value_2;
     cout << "Provide the highest digit on dice 2 of 2: ";
-    int max_value_2;
+    const short max_value_2;
     cin >> max_value_2;
     cout << "\n\n";
 
