@@ -30,9 +30,26 @@ int main() {
     - Should get two random values between 1-6
 */  
     cout << "\n\n\n--$$$ Welcome to Nat's Dice Roller! $$$--\n";
-    int rand_dice = 1 + rand() % 6;
-    cout << "\t    Rolls Dice 1...\n" << "\t\t"<< rand_dice << "\n\t\t\t\tNICE!\n"<< endl;
-    int rand_dice_2 = 1 + rand() % 6;
+    // now do it with user input without hardcoding the max/min value for dice digits!
+    cout << "DICE 1:\n"<< "Provide the lowest digit on dice 1 of 2: ";
+    int min_value_1;
+    cin >> min_value_1;
+    cout << "Provide the highest digit on dice 1 of 2: ";
+    int max_value_1;
+    cin >> max_value_1;
+    cout << "\n\n";
+
+    cout << "DICE 2:\n" << "Provide the lowest digit on dice 2 of 2: ";
+    int min_value_2;
+    cin >> min_value_2;
+    cout << "Provide the highest digit on dice 2 of 2: ";
+    int max_value_2;
+    cin >> max_value_2;
+    cout << "\n\n";
+
+    int rand_dice_1 = (rand() % (max_value_1 - min_value_1 + 1)) + min_value_1;
+    cout << "\t    Rolls Dice 1...\n" << "\t\t"<< rand_dice_1 << "\n\t\t\t\tNICE!\n"<< endl;
+    int rand_dice_2 = (rand() % (max_value_2 - min_value_2 + 1)) + min_value_2;
     cout << "\t    Rolls Dice 2...\n" << "\t\t" << rand_dice_2 << "\n\t\t\t\tGOOD!\n"<< endl;
 
 
