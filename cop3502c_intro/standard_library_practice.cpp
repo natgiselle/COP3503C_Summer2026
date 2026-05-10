@@ -7,7 +7,6 @@ using namespace std; // does not require ; but is good in practice
 
 int main() {
     double result_floor = floor(1.2); // returns value as an int (1)
-    cout << result_floor;
 
     double result_pow = pow(2, 3); // takes in 2 parameters 2^3
 
