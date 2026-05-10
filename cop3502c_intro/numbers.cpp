@@ -34,14 +34,18 @@ int main() {
     cout << "unsigned int number = 0 -> " << number_unsigned << endl << endl;
     //
     int number = 1'000'000; // makes digit seperating easier
-    cout << number << endl << endl;
+    cout << "number 1'000'000:\n" << number << endl << endl;
     short another = number; // regular assignment allows narrowing but will lose data.
     // short another{number}; brace initalization DOES NOT allow narrowing conversions (DOES GIVE ERROR)
-    cout << number << endl;
-
+    cout << "number: "<< number << endl; // 00001111 01000010 01000000
+    //  2 bytes/16 bits
+    cout << "another: " << another << endl; // 01000010 01000000 a short can only hold onto the LAST 16 BITS
     short number_2 = 100;
-    int another_2 = number; // storing a smaller number in a larger memory space WILL NOT HAVE DATA LOSS, additional slots in memory will be filled with 0
+    int another_2 = number_2; // storing a smaller number in a larger memory space WILL NOT HAVE DATA LOSS, additional slots in memory will be filled with 0
+    cout << "number 2: "<< number_2 << endl;
+    cout << "another 2: " << another_2 << endl;
 
     // CAN EXPLICITLY TYPE CAST USING static_cast<data_type>(variable_name);
+
     return 0;
 }
