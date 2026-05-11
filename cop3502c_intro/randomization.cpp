@@ -51,9 +51,5 @@ int main() {
     cout << "\t    Rolls Dice 1...\n" << "\t\t"<< rand_dice_1 << "\n\t\t\t\tNICE!\n"<< endl;
     int rand_dice_2 = (rand() % (max_value_2 - min_value_2 + 1)) + min_value_2;
     cout << "\t    Rolls Dice 2...\n" << "\t\t" << rand_dice_2 << "\n\t\t\t\tGOOD!\n"<< endl;
-
-
-
-
     return 0;
 }
