@@ -58,5 +58,59 @@ int main() {
     if (grade < 70){
         cout << "Condolences, you id not pass the class" << endl;
     }
+
+    cout << "\n\nVariable Test Coverage:" << endl;
+    // See which covers all possibilities and if it does not, fix it
+    short age = 18;
+    short chartPosition = 10;
+    double probability = 0.1; // if you make this into a short it will be saved as 0 not 0.1 since short is an small integer value, not double
+    if (probability < .1) {
+        cout << "That's improbable!" << endl;
+    }
+    if (probability < .5 && probability >= .1) {
+        cout << "That's unlikely!" << endl; 
+    }
+    if (probability >= .5) {
+        cout << "That's a good chance!" << endl; 
+    }
+    cout << "\n\n";
+    if (age < 18) {
+        cout << "You are too young to vote" << endl;
+    }
+    if (age >=18) { // prev. age < 18 
+        cout << "You are eligible to vote" << endl;
+    }
+    cout << "\n\n";
+        if (chartPosition <= 10) {
+            cout << "You made it into the top 10 songs!" << endl; 
+    }
+    if (chartPosition > 10) {
+        cout << "Better luck next week." << endl; 
+    }
+
+
+    cout << "\n\n\nCompound Conditional Statements" << endl;
+    /**
+     * and &&
+     * or ||
+     * negate !
+     */
+    int num = 12;
+    // num 16 -yes it executes the print statement
+    // num = 8 - && (and) operator means T && F = F it does not display print statement
+    // num = 8 - || (or) operator means T || F = T so it does display print statement
+    cout << "Exercise 5:" << endl;
+    // COMPOUND CONDITIONAL: when you prioritize conciseness & readability
+    if (num % 2 == 0 && num > 10) {
+        cout << "Even and greater than 10" << endl;
+    }
+    // NESTED IF STATEMENT: when you prefer two seperate if statements
+    if (num % 2 == 0) {
+        if (num > 10) {
+            cout << "Even and greater than 10" << endl;
+        }
+    }
+
+
     return 0;
 }
