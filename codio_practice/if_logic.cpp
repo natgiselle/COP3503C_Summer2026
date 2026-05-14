@@ -12,6 +12,7 @@
 using namespace std;
 
 int main() {
+    cout << "Exercise 1:" << endl;
     string a = "7";
     string b = "4";
     int c = stoi(a);
@@ -29,7 +30,33 @@ int main() {
         bool a_noteq_b = true;
         cout << boolalpha << a_noteq_b << endl;
     }
-    cout << "\nAlways print me" << endl;
+    cout << "\nAlways print me" << "\n\n\n";
 
+    cout << "Exercise 2:\n";
+    // == -doesnt display above statements
+    // tru -always prints
+    // false -never prints
+    // false no {} -no error just prints the next statement of above still true
+    // true no {} -no errors prints both following statements
+    // basically the if without the curly braces and with a condition only makes the outcome whatevr is in the first line following it
+    // if (true) 
+    if (7 != 10) {
+        cout << "The above statement is true" << endl;
+        cout << "The above statement is still true" << endl;
+        cout << "This is not related to the if statement" << endl;
+    }
+
+
+    cout << "\n\nExercise 3:" << endl;
+    int grade = 90;
+    // 90 < 70 is false so both if conditions will NOT be displayed onto the terminal (screen)
+    // 90 >= 70 is true so only the first if condition executes since 90 < 70 is not true
+    if (grade >= 70) {
+        cout << "Congrats, you passed the class" << endl;
+    }
+
+    if (grade < 70){
+        cout << "Condolences, you id not pass the class" << endl;
+    }
     return 0;
 }

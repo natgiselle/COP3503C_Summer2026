@@ -66,9 +66,5 @@ int main()
     std::cout << "Print Actors Function:" << std::endl;
     PrintActors();
     cout << "\n";
-
-
-
-
     return 0;
 }
