@@ -110,7 +110,14 @@ int main() {
             cout << "Even and greater than 10" << endl;
         }
     }
-
-
     return 0;
+
+    /**
+     * WHICH STATEMENT IS FALSE:
+     * FALSE: A) Allow a specific command to run of the boolean expression is false
+     *          code does not run what is in the if statement if the condition is false
+     * ASK IN WHY OFFICE HOURS TRUE: B) Includes the keyword if, a boolean expression inside (), and a command(s) to run within {}.
+     * TRUE: C) Allows a specific command(s) to run if the boolean expression is true.
+     * TRUE: D) Allows a program to make decisions about what to do.
+     */
 }
