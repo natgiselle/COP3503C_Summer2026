@@ -1,4 +1,4 @@
-/* 
+
 /* FUNDAMENTAL DATA TYPES:
     Statically typed variables (must declare the type):
     - C++
