@@ -150,9 +150,58 @@ int main () {
     cout << "using '': "<< quote_str << endl;
 
 
-    
+    /**
+     * COMPARING STRING LENGTHS PROGRAM:
+     * Construct a program that checks if
+     * string1 is longer than string2.
+     * Then prints the message string1 is longer if true.
+     * 
+     * getline(cin, variable_name); instead of cin >> variable_name;
+     */
+    cout << "\n\n" << endl;
+    cout << "Welcome to the StringStrength Measurer!" << endl;
+    bool play = true;
+    while(play){
+        cout << endl;
+        cout << "Please enter the contents of the first string: ";
+        std::string user_str_1 = "";
+        getline(cin, user_str_1); // stores user-input beyond empty space until enter is pressed
+        cout << endl;
+        cout << "Please enter the contents of the second string: ";
+        std::string user_str_2 = "";
+        getline(cin, user_str_2);
+        cout << endl;
+        if(user_str_1.length() > user_str_2.length()){
+            cout << "string 1: \"" + user_str_1 + "\"\n"<< " is longer!" << endl;
+        } 
+        /** 
+         * cannot do + "\"" + on its own it needs an integrated scope
+         *  ^ ERROR: expression must have integral or unscoped enum type
+         * IF YOU WANT "\"" ON ITS OWN MUST DO other_str << "\"" << another_str
+         * ^ NOERROR:
+         */
+        else if(user_str_1.length() < user_str_2.length()){
+            cout << "\"" + user_str_2 + "\"" << " is longer!" << endl;
+        }
+        else {
+            cout << "\"" << user_str_1 << "\"" << " and " << "\"" << user_str_2 << "\"" << " have EQUAL length!" << endl;
+        }
 
-
-
+        cout << "Would you like to continue? [Y/N]: " << endl;
+        char choice = '0';
+        // checks validity of choice and if it is not (Y, y, N, or n) for input
+        while(!(cin >> choice) || (choice != 'Y' && choice != 'y' && choice != 'N' && choice != 'n')){
+            cin.clear(); // clears the error/ whats in buffer
+            cout << "Invalid Input. Please provide [Y/N]: ";
+        }
+        cin.ignore(); // discards the leftover newline so getline waits for real input!
+        if (choice == 'Y' || choice == 'y'){
+            play = true;
+        }
+        else if (choice == 'N' || choice == 'n'){
+            cout << "Thank you for playing! Goodbye <3" << endl;
+            play = false;
+        }
+    }
     return 0;
 }
