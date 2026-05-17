@@ -105,7 +105,7 @@ int main () {
 
 
     /**
-     * find() FUNCTION WITH SPECIFIC START INDEX: 
+     * THE find() FUNCTION WITH SPECIFIC START INDEX: 
      * <string_name>.find("string searched", <start_index_#>)
      */
     string book_str = "The brown dog jumps over the lazy fox.";
@@ -115,6 +115,17 @@ int main () {
     cout << "book_str.find(''He'') = " << book_str.find("He") << endl;
     // C++ is case sensitive therefore it does not recognize "He" and returns 18446744073709551615
 
-
+    /**
+     * THE substr() FUNCTION:
+     * is the sub string function which returns a portion of the string
+     * <string_name>.subtr(start_index_#, #_of_chars_you_want)
+     */
+    string str = "The brown dog jumps over the lazy fox.";
+    string str_slice = str.substr(4, 9);
+    cout << str_slice << endl << endl; // starts at index 4 and then from that index count index 4 as the first character and then to length 9 (inclusive)
+    string cal_hob_str = "Calvin and Hobbes";
+    string my_slice = cal_hob_str.substr(3,8); // wil return "vin and "
+    std::cout << "caL_hob_str.substr(3,8) of ''Calvin and Hobbes'' = "<< my_slice << std::endl;
+    
     return 0;
 }
