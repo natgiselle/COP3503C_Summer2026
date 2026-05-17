@@ -84,5 +84,23 @@ int main () {
     cout << str_2 << endl;
     str_2 = "Mouse";
     cout << str_2 << endl;
+
+    /**
+     * find() FUNCTION:
+     * tells you if a chracter or a string is present in another string
+     * returns the index it is found on
+     * <string_name>.find("string_search")
+     */
+
+    string my_string = "The brown dog jumps over the lazy fox.";
+    cout << my_string.find(my_string) << endl; // returns  10 bcs the first char of the string is on index 10 index from 0 start point!! dont forget
+    
+    // my_string.find("cat") DOES NOT PRODUCE ERROR
+    // ^ gives 18446744073709551615 which is the largest integer value possible in C++
+    // means the system has search through all the values and cannot locate the specific value
+    // is 18446744073709551615 as an unsigned value = -1 signed value
+
+    // my_string.find(" ") returns the first instance of space since there is many instances
+    // my_string.find(my_string) returns 0 since the entire string starts at index 0
     return 0;
 }
