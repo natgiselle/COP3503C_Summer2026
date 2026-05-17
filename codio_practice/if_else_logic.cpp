@@ -73,6 +73,10 @@ int main () {
     cout << "EVEN OR ODD PROGRAM:" << endl;
     
     // user-input validation practice!!! (optional side quest i did for fun!)
+    // only discrepency is that it accepts anything that starts with an integer value but anything after no
+    // rejects anything that starts with anything other than numbers
+    
+//
     while(true){ // always runs until correct input is given
         cout << "Enter a positive integer value: " << endl;
         cin >> num;
@@ -97,3 +101,6 @@ int main () {
     }
     return 0;
 }
+
+
+
