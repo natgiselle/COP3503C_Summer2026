@@ -53,5 +53,24 @@ int main () {
     // INDIVIDUAL CHARACTERS CAN BE REFERENCED BY USING THE INDEX 
     // CAN FIND THE VALUE OF A GIVEN INDEX USING at() or [] 
 
+    /**
+     * MUTABILITY:
+     * STRING LITERALS ARE NOT MUTABLE THEY ARE IMMUTABLE
+     * 
+     * string my_str = "House";
+     * my_str.at(0) = "M"; PRODUCES AN ERROR THE PROGRAM DOES NOT COMPILE
+     * HOWEVER YOU CAN MANIPULATE A SPECIFIC CHAR IN THE STRING LITERAL
+     * 
+     * ALLOWED: my_str.at(0) = 'M';
+     */
+
+    string og_str = "House";
+    // displays House to the screen 
+    cout << og_str << endl;
+
+    // change index 0 char to 'M'
+    og_str.at(0) = 'M';
+    // displays Mouse to the screen
+    cout << og_str << endl;
     return 0;
 }
