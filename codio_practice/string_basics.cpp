@@ -93,7 +93,7 @@ int main () {
      */
 
     string my_string = "The brown dog jumps over the lazy fox.";
-    cout << my_string.find(my_string) << endl; // returns  10 bcs the first char of the string is on index 10 index from 0 start point!! dont forget
+    cout << "my_string.find(my_string) = "<< my_string.find(my_string) << endl; // returns  10 bcs the first char of the string is on index 10 index from 0 start point!! dont forget
     
     // my_string.find("cat") DOES NOT PRODUCE ERROR
     // ^ gives 18446744073709551615 which is the largest integer value possible in C++
@@ -102,5 +102,19 @@ int main () {
 
     // my_string.find(" ") returns the first instance of space since there is many instances
     // my_string.find(my_string) returns 0 since the entire string starts at index 0
+
+
+    /**
+     * find() FUNCTION WITH SPECIFIC START INDEX: 
+     * <string_name>.find("string searched", <start_index_#>)
+     */
+    string book_str = "The brown dog jumps over the lazy fox.";
+    cout << "book_str.find(''he'', 4) = " << book_str.find("he", 4) << endl; // search for he starting at index 4 
+    // "he" starting at index 4 is found on index 26
+    cout << "book_str.find(''he'') = " << book_str.find("he") << endl; // search for he starting at index 0 by default
+    cout << "book_str.find(''He'') = " << book_str.find("He") << endl;
+    // C++ is case sensitive therefore it does not recognize "He" and returns 18446744073709551615
+
+
     return 0;
 }
