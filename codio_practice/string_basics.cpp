@@ -114,7 +114,7 @@ int main () {
     cout << "book_str.find(''he'') = " << book_str.find("he") << endl; // search for he starting at index 0 by default
     cout << "book_str.find(''He'') = " << book_str.find("He") << endl;
     // C++ is case sensitive therefore it does not recognize "He" and returns 18446744073709551615
-
+    cout << "\n\n";
     /**
      * THE substr() FUNCTION:
      * is the sub string function which returns a portion of the string
@@ -125,7 +125,34 @@ int main () {
     cout << str_slice << endl << endl; // starts at index 4 and then from that index count index 4 as the first character and then to length 9 (inclusive)
     string cal_hob_str = "Calvin and Hobbes";
     string my_slice = cal_hob_str.substr(3,8); // wil return "vin and "
-    std::cout << "caL_hob_str.substr(3,8) of ''Calvin and Hobbes'' = "<< my_slice << std::endl;
+    std::cout << "cal_hob_str.substr(3,8) of \"Calvin and Hobbes\" = " << my_slice << std::endl;
+    cout << "\n\n";
+
+    /**
+     * ESCAPE CHARACTERS:
+     * \\ used to display a literal backlash in the output
+     * \" used to display double-quotes in the output
+     * \' often used for char constants
+     * \t inserts a tab space
+     * \n moves output to a new line
+     */
+    string quote_str = "And then she said, \"Hi there.\"";
+    cout << "using \\\"\\\": " << quote_str << endl;
+    cout << "using \"\": " << "GIVES ERROR\n ERROR: unable to find string literal operator 'operator""Hi'" << endl << endl;
+    /** 
+     * "And then she said, "Hi there.""
+     * ERROR: unable to find string literal operator 'operator""Hi'
+     */
+    quote_str = "And then she said, \'Hi there.\'";
+    cout << "using \\\'\\\': "<< quote_str << endl;
+    quote_str = "And then she said, 'Hi there.'";
+    // using single quotes within double quotes does not require escape char \'
+    cout << "using '': "<< quote_str << endl;
+
+
     
+
+
+
     return 0;
 }
