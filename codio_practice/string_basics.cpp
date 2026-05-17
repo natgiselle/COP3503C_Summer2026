@@ -30,5 +30,28 @@ int main () {
     // IT IS NOT 6 BECAUSE FOREIGN CHARS DO NOT FOLLOW THIS CONVENTION
     int len_str = my_str.length();
     cout << len_str << endl;
+
+    /**
+     * STRING INDICES/INDEX:
+     * they start at 0
+     * <string_name>.at(<index_#>)
+     * OR
+     * <string_name>[<index_#>]
+     */
+    
+    string cat_str = "meow :3";
+    char cat_index = cat_str.at(0);
+    cout << cat_index << endl; // gives the char at that index value which is m for 0
+    // cat_str[-1]; or cat_str.at(-1) gives ERROR CANNOT DO OF -1,2,3,...-n
+    // cat_str[cat_str.length()-1]; DOES NOT give error it gives the last index in string
+    cat_index = cat_str[cat_str.length()-1]; 
+    cout << cat_index << endl;
+    // cat_str.at(cat_str.length()); gives ERROR std::out_of_range
+
+    // STRINGS ARE COMPOSED OF A SEQUENCE OF -> CHARACTERS
+    // THE NUMBER OF CHARACTERS CAN BE DETERMINED BY USING length()
+    // INDIVIDUAL CHARACTERS CAN BE REFERENCED BY USING THE INDEX 
+    // CAN FIND THE VALUE OF A GIVEN INDEX USING at() or [] 
+
     return 0;
 }
