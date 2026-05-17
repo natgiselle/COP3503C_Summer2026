@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 #include <string>
 // ALWAYS PUT FUNCTIONS ABOVE MAIN BECAUSE THE ENTRY POINT OF THE PROGRAM GOES TO MAIN FIRST EACH TIME
 
