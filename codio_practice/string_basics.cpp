@@ -62,6 +62,7 @@ int main () {
      * HOWEVER YOU CAN MANIPULATE A SPECIFIC CHAR IN THE STRING LITERAL
      * 
      * ALLOWED: my_str.at(0) = 'M';
+     * CAN MODIFY A SINGULAR CHARACTER AT A TIME
      */
 
     string og_str = "House";
@@ -72,5 +73,16 @@ int main () {
     og_str.at(0) = 'M';
     // displays Mouse to the screen
     cout << og_str << endl;
+
+
+    /**
+     * STRING REASSIGNMENT:
+     * CAN REPLACE AN ENTIRE STRING
+     */
+
+    string str_2 = "House";
+    cout << str_2 << endl;
+    str_2 = "Mouse";
+    cout << str_2 << endl;
     return 0;
 }
