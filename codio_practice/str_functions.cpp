@@ -58,6 +58,36 @@ cout << my_string.find_first_of("aeiou", 11); // returns 13
  */
 // is the same idea just the last instance of either of those chars
 
-
+/**
+ * THE push_back() FUNCTION:
+ * CANNOT ADD MULTIPLE CHARS (STRING) TO AN EXISTING STRING
+ * !!!!!^^^^^ THE insert() FUNCTION CAN ^^^^^!!!!!
+ * 
+ */
+    cout << "\n\nTHE push_back() FUNCTION:" << endl;
+    string str_1 = "Today is Satur";
+    str_1.push_back('d'); //
+    str_1.push_back('day'); // multicharacter literal is valid but it doesnt work as intended
+    // 'day' -> 'd' 'a' 'y' -> packed into int -> truncated to char -> 'y'
+    // only thr final char in any multicharacter literal survives here
+    cout << str_1 << endl;
+    cout << "\n\n";
+/**
+ * THE insert() FUNCTION:
+ * <string>.insert(index_to_insert_at, "string to insert")
+ * CAN ADD MULTIPLE CHARS (STRING) TO AN EXISTING STRING
+ * !!!!!^^^^^ THE insert() FUNCTION CAN ^^^^^!!!!!
+ * 
+ */
+                  //00000000001111
+                  //01234567890123
+    string str_2 = "Today is Satur";
+    cout << "THE insert() FUNCTION:" << endl;
+    str_2.insert(str_2.length(), "day"); // adds day at index 14 because length = 14
+    //str_2.insert(str_2.)    str_2.insert(0,"day");
+    cout << str_2 << endl;
+    string str_3 = "Today is Satur";
+    str_3.insert(str_3.length(), "!"); // adds day at index 14 because length = 14
+    cout << str_3 << endl;
     return 0;
 }
