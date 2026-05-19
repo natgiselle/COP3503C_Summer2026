@@ -92,6 +92,38 @@ cout << my_string.find_first_of("aeiou", 11); // returns 13
 
 
     /**
+     * THE replace() FUNCTION:
+     * combines the erase() and insert() function
+     * my_string.replace(1,2,"3");
+     *  start erasing at index 1 and if you do erase 1 char it will erase what waa at index 1 it starts there
+     * erase 2 chars starting at index 1
+     * replace with "3" which is the string that we insert at index 1
      */
+// erase everything startin at 6 (inclusive) until the end of the string
+             //                  and then add plus 5 chars to the right of the string
+                //         || 
+                //         vv   11
+                //    012345678901
+    string r_str_1 = "Hello world!";
+    string r_str_2 = "Codio.";
+    // erase all characters starting at index 6, 5 chars to the right in str_1
+    // then insert r_str_2 at index 6 within string
+    string r_str_3 = r_str_1.replace(2,3, "y"); 
+    // 6,5, r_str_2 = Hello Codio.!
+    // 6,6, r_str_2 = Hello Codio.
+    // 2,3, "y = starts erasing index 2 and 3 chars up deleting llo and replacing llo with y to be Hey world!
+    cout << r_str_3 << endl;
+    cout << endl;
+
+
+    cout << "FINAL REPLACE EXERCISE:" << endl;
+    //              00000000001111
+    //              01234567899012
+    string sunny = "Today is sunny";
+    string rainy = "rainy";
+    // turn into totday is rainy
+    sunny.replace(9,5, rainy);
+    cout << sunny << endl;
+
     return 0;
 }
