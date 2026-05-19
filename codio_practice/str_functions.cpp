@@ -125,5 +125,20 @@ cout << my_string.find_first_of("aeiou", 11); // returns 13
     sunny.replace(9,5, rainy);
     cout << sunny << endl;
 
+    /**
+     * THE append() FUNCTION:
+     * different way to concatenate or combine strings
+     * SAME as adding LITERAL STRINGS together using + operator
+     */
+    string a = "High";
+    string b = " Five";
+    // High Five since Five string has a space at the beginning
+    // a.append(b + "!") = High Five! doesnt give error just adds to the end
+    // a.append("Five" + "!") = ERROR: cannot establish string literal inside and then add 
+    //(make sure that at least one of the strings is a string variable bcs it will think you are manipulating string literal which is not allowed)
+    // int b = 5; no ierror just ignores it and doesnt append
+
+    cout << a.append(b + "!") << endl;
+
     return 0;
 }
