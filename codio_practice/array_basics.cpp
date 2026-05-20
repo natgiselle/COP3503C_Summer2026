@@ -65,5 +65,32 @@ int main() {
     cout << "Before Replacing Duplicate: " << weekdays[3] << endl;
     weekdays[3] = "Thursday";
     cout << "After Replacing Duplicate: " << weekdays[3] << endl;
+
+    /**
+     * HOW TO ITERATE: OVER AN ARRAY
+     * i = 0 is the start and it stops once i = 9 for i < 10 and it increments by 1 until it reaches 9
+     * for (i = start ;i < stop; i<step>) {
+     * }
+     * 
+     * ARRAYS CANNOT USE .length() function
+     * sizeof() operator does NOT determine # of elements in an array
+     * sizeof() operator calculates SIZE OF THE ARRAY in BYTES
+     * string takes up 32 bytes 16 bits 4 bytes 2^4
+     * 1 bit = 1/8 byte
+     * 8 bits = 1 byte
+     */
+    cout << "HOW TO ITERATE: OVER AN ARRAY" << endl;
+    string friends[] = {"Alan", "Bob", "Carol", "David", "Ellen", 
+                    "Fred", "Grace", "Henry", "Ian", "Jen"};
+    cout << sizeof(friends) << endl;
+    for (int i = 0; i < sizeof(friends)/ sizeof(friends[0]); i++){
+        cout << friends[i] << endl;
+        cout << friends[i] << endl;
+    }
+// sizeof(debt)     total bytes the whole array takes up → 24 bytes
+// sizeof(debt[0])  bytes ONE element takes up → 8 bytes
+//  24 / 8 = 3      the number of elements in the array
+// 
+    double debt[] = {23.67, 82.96, 34.51};
     return 0;
 }
