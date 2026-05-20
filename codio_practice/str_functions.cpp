@@ -151,9 +151,9 @@ cout << my_string.find_first_of("aeiou", 11); // returns 13
     
     /**
      * UPPERCASE AND LOWERCASE FUNCTIONS:
-     * 
+     *  WITHOUT char() conversion it returns an integer representing the ASCII value
      * THESE ARE CHARACTER LEVEL functions-
-     * char(toupper(<string>))
+     * char(toupper(<string>)) 
      * char(tolower(<string>))
      * 
      * BOTH TAKE ONLY A SINGLE CHARACTER (int/char) NOTTTT A WHOLE STRING:
@@ -167,11 +167,43 @@ cout << my_string.find_first_of("aeiou", 11); // returns 13
     cout << "\nchar(toupper(string)) exercise:" << endl;
     string str_d = "the big brown dog";
 
-    //
+    
     cout << char(toupper(str_d.at(str_d.length()-1))) << endl; 
     // char(toupper(str_d.at(0))) = T 
     // char(toupper(str_d.at(str_d.length()-1))) = G
     // char(toupper('t')) = T
     //char(toupper(str_d)) ERROR: takes in single character int or char but it is giving a whole string which is NOT allowed
+
+    cout << "\nchar(tolower(string)) exercise:" << endl;
+    string str_e = "THE BIG BROWN DOG";
+    cout << char(tolower('%'))  << endl;
+    // char(tolower(str_e.at(1))) = h
+    // char(tolower(str_e.at(str_e.length()-1))) = g
+    // char(tolower('B')) = b
+    // char(tolower('%')) = % if it is a special symbol it will just stay the same WILL NOT produce error
+
+    /**
+     * #1 WHICH CAN CAUSE THIS:
+     * before:  t 
+     * after:   T
+     * 
+     * ANSWER:
+     * using toupper() or replace()
+     */
+
+    string t_str = "t";
+    cout << t_str << " -> " << t_str.replace(0, 1, "T") << endl; // 3 param
+    cout << t_str << " -> " << char(toupper(t_str.at(0))) << endl;
+    // .insert() and .erase() would not work
+
+    /**
+     * Quiz QUESTION 2:
+     * Create a program that checks if string sentence has a white space in the beginning of the string.
+     * If the sentence has white space at the beginning then it removes that and displays the sentence without the white space.
+     */
+    string sentence = " hi";
+    if (sentence.at(0) == ' ') {
+        cout << "OG sentence:\n" + sentence << endl << "NEW sentence:\n" + sentence.erase(0,1) << endl;
+    }
     return 0;
 }
