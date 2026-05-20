@@ -139,6 +139,15 @@ cout << my_string.find_first_of("aeiou", 11); // returns 13
     // int b = 5; no ierror just ignores it and doesnt append
 
     cout << a.append(b + "!") << endl;
+    cout << endl;
+    /**
+     * FINAL append() EXERCISE:Given the following code snippet:
+        string a = "apple";
+        string b = "*banana";
+        string c = "cherry*";
+        string d = "*durian*";
+        Which of the following pairs of statements produce the same output?
+    */
 
     return 0;
 }
