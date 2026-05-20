@@ -148,6 +148,30 @@ cout << my_string.find_first_of("aeiou", 11); // returns 13
         string d = "*durian*";
         Which of the following pairs of statements produce the same output?
     */
+    
+    /**
+     * UPPERCASE AND LOWERCASE FUNCTIONS:
+     * 
+     * THESE ARE CHARACTER LEVEL functions-
+     * char(toupper(<string>))
+     * char(tolower(<string>))
+     * 
+     * BOTH TAKE ONLY A SINGLE CHARACTER (int/char) NOTTTT A WHOLE STRING:
+     * can do a whole string by using a for loop for each char:
+     * 
+     * for (char c : std_d) {
+     *     cout << char(toupper(c));
+     * }
+     * cout << endl;
+     */
+    cout << "\nchar(toupper(string)) exercise:" << endl;
+    string str_d = "the big brown dog";
 
+    //
+    cout << char(toupper(str_d.at(str_d.length()-1))) << endl; 
+    // char(toupper(str_d.at(0))) = T 
+    // char(toupper(str_d.at(str_d.length()-1))) = G
+    // char(toupper('t')) = T
+    //char(toupper(str_d)) ERROR: takes in single character int or char but it is giving a whole string which is NOT allowed
     return 0;
 }
