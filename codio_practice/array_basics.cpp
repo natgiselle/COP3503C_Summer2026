@@ -91,6 +91,20 @@ int main() {
 // sizeof(debt[0])  bytes ONE element takes up → 8 bytes
 //  24 / 8 = 3      the number of elements in the array
 // 
+
+// enhanced for loop
     double debt[] = {23.67, 82.96, 34.51};
+
+
+    int ages[] = {18, 21, 15, 2, 68};
+
+    for (int i : ages) {
+    if (i >= 18) {
+        cout << "Eligible" << endl;
+    }
+    else {
+        cout << "Ineligible" << endl;
+    }
+    }
     return 0;
 }
