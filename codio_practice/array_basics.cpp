@@ -92,12 +92,12 @@ int main() {
 //  24 / 8 = 3      the number of elements in the array
 // 
 
-// enhanced for loop
     double debt[] = {23.67, 82.96, 34.51};
 
 
     int ages[] = {18, 21, 15, 2, 68};
-
+// enhanced for loop
+// An enhanced for loop is used which causes i to take on the value of each element.
     for (int i : ages) {
     if (i >= 18) {
         cout << "Eligible" << endl;
