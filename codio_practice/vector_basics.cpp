@@ -30,13 +30,12 @@ int main() {
      */
 
    // int digits[3];
-
     // cout << numbers.size() << endl;
     // cout << sizeof(digits) / sizeof(digits[0]) << endl;
 
     vector<int> numbers_2(0); //vector with no elements
     numbers_2.push_back(50); //add 50 as an element to end of vector
-
+    
     cout << numbers_2.at(0) << endl; //50 becomes first and only element
 
     vector<int> numbers_3(3);
