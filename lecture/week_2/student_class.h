@@ -14,7 +14,12 @@ private: // only accessible inside the class
     double lab2;
 
 public:
+    // default constructor no arguements`
     Student();
+
+    // parametrized
+    Student(string name_, int id_, double quiz1_, double lab1_);
+    void display();
     double takeAverage(double quiz1_, double lab1_, double lab2_);
 }; // class requires ; at the end
 
