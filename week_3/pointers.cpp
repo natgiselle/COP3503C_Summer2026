@@ -78,6 +78,6 @@ int main() {
 
     cout << endl << endl;
     Book myBook2("A Pale Blue Dot", "Carl Sagan");
-    myBook2.getBookName2().getAuthorName2(); // returning an object which is mybook2 and then returns myBook2.getAuthorName();
+    myBook2.getBookName2().getAuthorName2(); // returning an object which is mybook2 and then does myBook2.getAuthorName()
     return 0; 
 }
