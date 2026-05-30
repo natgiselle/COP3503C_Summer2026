@@ -16,7 +16,10 @@ class Cylinder {
             height = _height;
         }
 
-        double getRadius(){
+        /**
+         * GETTERS: @param NO @return YES
+         */
+        double getRadius(){ 
             return radius;
         }
 
@@ -24,6 +27,9 @@ class Cylinder {
             return height;
         }
 
+        /**
+         * GETTERS: @param YES @return NO it is void
+         */
         void setRadius(double _radius){
             radius = _radius;
         }
