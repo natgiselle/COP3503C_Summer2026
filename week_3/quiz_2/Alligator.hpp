@@ -21,6 +21,4 @@ class Alligator{
         std::string getOwner();
         int getAge();
 };
-
-
 #endif
