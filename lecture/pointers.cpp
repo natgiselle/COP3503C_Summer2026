@@ -7,6 +7,13 @@
  * because it points to a location in memory rather than holding the value directly
  */
 
+
+/**
+ *  stack memory is limited it is only a few MB: stack overflow error
+ * 
+ * 
+ */
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -79,4 +86,6 @@ return 0;
 // references act as a stand-in or alias for another variable
 // will become an alias to that object foer thew rest of your program
 // can add alias to any type
+// references are NOT other memory
+// make amperside go a specific way not in the midele bcs it will look like the logical operator and (&)
 }
