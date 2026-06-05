@@ -1,5 +1,7 @@
 /**
  * DYNAMIC MEMORY:
+ * Is memory that is allocated on the heap
+ * is called dynamic memorry allocation because the size is dynamic you can decide what is gong to be the size of the array
  */
 
 #include <iostream>
