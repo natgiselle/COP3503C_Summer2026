@@ -1,28 +1,41 @@
-#include "Point2D.h"
 #include <iostream>
+#include "Point2D.h"
 using namespace std;
 
 Point2D::Point2D(){
+    x = y = 0;
 }
 
-Point2D::Point2D(float x_, float y_){
-    this->x = x_;
-    this->y = y_;
+
+// this->x = x_ not nedded since the parameter name is different from the member variable name
+// this->x = x YES this-> pointer IS NEEDED because the paramater passed is the same as the member variable name
+Point2D::Point2D(float x, float y){
+    this->x = x;
+    this->y = y; 
 }
-// getters return the type of what its getting NO PARAM
-// setters return nothing and only set value OF PARAM
+
 float Point2D::GetX(){
-    return x;
+    return this->x;
 }
 float Point2D::GetY(){
-    return y;
+    return this->y;
 }
-// MUST USE GETTERS FOR PRIVATE MEMBER VARIABLES since earlier it was all in the clas therfore didnt need getters
-Point2D Point2D::operator+(const Point2D& other) const {
+
+void Point2D::SetX(float x){
+    this->x = x;
+}
+
+void Point2D::SetY(float y){
+    this->y = y;
+}
+
+Point2D Point2D::operator+(const Point2D& other) const { // use a reference to the object Other and return the copy of temp which has the new x and y
+                                            //   ^^^^^ means this function does NOT modify *this which means it does NOT modify the current object
+                                            //          the current object is the left side like p1.operator+(p2) p1 is the object calling the function
     Point2D temp;
     temp.x = x + other.x;
     temp.y = y + other.y;
-    return temp;
+    return temp; // just returns the copy of temp object
 }
 
 Point2D Point2D::operator-(const Point2D& other) const {
@@ -32,22 +45,5 @@ Point2D Point2D::operator-(const Point2D& other) const {
     return temp;
 }
 
-bool Point2D::operator==(const Point2D& other) const {
-    return x == other.x && y == other.y;
-}
 
-bool Point2D::operator!=(const Point2D& other) const {
-    return !(*this == other); // negates the == operator
-}
 
-Point2D& Point2D::operator+=(const Point2D& other){
-    this->x += other.x;
-    this->y += other.y;
-    return *this;
-}
-
-Point2D& Point2D::operator-=(const Point2D& other){
-    this->x -= other.x;
-    this->y -= other.y;
-    return *this;
-}

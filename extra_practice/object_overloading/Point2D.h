@@ -1,27 +1,40 @@
-#ifndef POINT2D_H// preprocessor keyword
-#define POINT2D_H
-
+#include <iostream>
 using namespace std;
-class Point2D {
-    private: // private member variables
+#ifndef POINT2D_H
+#define POINT2D_H
+/**
+ * Instructions:
+
+1. Basic Arithmetic
+Create a Point2D class with x and y floats. Overload + and -.
+
+2. Relational
+Add == and != to your Point2D class.
+
+3. Compound
+Add += and -= to Point2D. Then in main, test chaining: p1 += p2 += p3.
+
+4. All three combined
+Create a Fraction class with numerator and denominator ints. Overload:
+
++ (remember: a/b + c/d = (ad + bc) / bd)
+== (remember: a/b == c/d means ad == bc)
++=
+ */
+class Point2D{
+    private:
         float x;
         float y;
-    public: // public member functions
-    Point2D();
-    Point2D(float x_, float y_);
-    // arithmetic operator overloading + and -
-    float GetX();
-    float GetY(); 
-    Point2D operator+(const Point2D& other) const;
-    Point2D operator-(const Point2D& other) const;
+    public:
+        Point2D();
+        Point2D(float x_, float y_);
+        float GetX();
+        float GetY();
+        void SetX(float x_);
+        void SetY(float y_);
 
-    // relational operator overloading == and !=
-    bool operator==(const Point2D& other) const;
-    bool operator!=(const Point2D& other) const;
-
-    // compound operator overloading += and -=
-    Point2D& operator+=(const Point2D& other);
-    Point2D& operator-=(const Point2D& other); // returns reference
-
+        // gets reference to other object which is constant since we arent changing any side of thr ewuation
+        Point2D operator+(const Point2D& other) const; // doesnt modify either side so you return a third obj with the solution of the two values
+        Point2D operator-(const Point2D& other) const;
 };
 #endif
