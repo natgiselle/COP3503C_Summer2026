@@ -45,5 +45,3 @@ Point2D Point2D::operator-(const Point2D& other) const {
     return temp;
 }
 
-
-
