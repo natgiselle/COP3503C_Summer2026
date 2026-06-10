@@ -1,4 +1,12 @@
 /**
+ * @author Natalie Ortiz
+ * @date 06/10/2026
+ */
+
+
+
+
+/**
  * Current layout: 1 Panel without tree
 Page 1
 Page 1
@@ -90,7 +98,6 @@ HeapAllocator(const HeapAllocator& other) {
 Check It!
 Mark as CompletedBack to dashboard
  */
-
 
 
 #include <iostream>
