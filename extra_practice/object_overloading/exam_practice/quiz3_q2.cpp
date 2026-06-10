@@ -43,12 +43,20 @@ void updateGradesByCopy(vector<int> grades_copy, int curve_points){
 
     // cannot range-base loop directly for pointer
 void updateGradesByPointer(vector<int>* grades_ptr, int curve_points){
+    for (int& element : *grades_ptr){ // dereference pointer to get actual vector
+        element += curve_points; // element is a copy of each of the individual elements
+        if (element > 100){
+            element = 100;
+        }
+    }
+    /**
     for (int i = 0; i < (*grades_ptr).size(); i++){
         (*grades_ptr)[i] += curve_points;
         if ((*grades_ptr)[i] > 100){
         (*grades_ptr)[i] = 100;
         }
     }
+        */
 }
 
 
