@@ -65,16 +65,16 @@ Which of these correctly defines a copy assignment operator?
 
 
 HeapAllocator operator=(const HeapAllocator& rhs) {
-  for (int i = 0; i < rhs.current_size; ++i) {
+    for (int i = 0; i < rhs.current_size; ++i) {
     this->array[i] = rhs.array[i];
-  }
+    }
 
 
 HeapAllocator& operator=(const HeapAllocator& rhs) {
-  for (int i = 0; i < rhs.current_size; ++i) {
+    for (int i = 0; i < rhs.current_size; ++i) {
     this->array[i] = rhs.array[i];                      
-  }
-  return &this;
+    }
+    return &this;
 }
 
 
@@ -85,21 +85,94 @@ HeapAllocator& operator=(const HeapAllocator& rhs) {    <-CORRECT ANSWER
     current_size = rhs.current_size;
     array = new int[current_size];                 
     for (int i = 0; i < current_size; ++i) {
-      array[i] = rhs.array[i];
+        array[i] = rhs.array[i];
     }
     return *this;
 }
 
 
 HeapAllocator(const HeapAllocator& other) {
-  for (int i = 0; i < other.current_size; ++i) {
-    this->array[i] = other.array[i];
-  }
+    for (int i = 0; i < other.current_size; ++i) {
+        this->array[i] = other.array[i];
+    }
 Check It!
 Mark as CompletedBack to dashboard
  */
 
 
+
+
+
+
+/**
+ * Current layout: 1 Panel without tree
+Page 1
+Page 1
+Dynamic Memory MCQ
+Please answer the following MCQ correctly for class participation. Extra credit is awarded only if ALL answered correctly.
+Fill out the Class Activity MCQ Feedback Form when you are done, your feedback will help us to improve these activities in the future.
+Question 1
+
+When is memory leaked in this code?
+
+
+MyClass* obj = new MyClass();
+obj = new MyClass();
+delete obj;
+
+No leak occurs.
+
+
+First Assignment
+
+
+Second Assignment. <-CORRECT
+
+
+At delete.
+
+Check It!
+
+Question 2
+
+What is wrong with this code?
+
+
+int* ptr = new int[5];
+delete ptr;  
+
+delete should be used with delete[] for arrays <- CORRECT ANSWER
+
+
+Memory allocation syntax is wrong.
+
+
+You need to initialize the array elements before deleting it.
+
+
+Nothing is wrong.
+
+Check It!
+
+Question 3
+
+Why is it considered good practice to assign a pointer to nullptr after deleting the memory it points to?
+
+
+It makes the code more efficient by reducing memory usage.
+
+
+You shouldn’t do that.
+
+
+It prevents the pointer from pointing to invalid memory, avoiding potential undefined behavior. <- CORRECT ANSWER
+
+
+It allows the memory to be reused automatically.
+
+Check It!
+Mark as CompletedBack to dashboard
+*/
 #include <iostream>
 using namespace std;
 /** BIGTHREE: destructor, copy constructor, copy assignment operator */
