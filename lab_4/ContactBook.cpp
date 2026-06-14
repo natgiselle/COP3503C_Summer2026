@@ -9,7 +9,7 @@ ContactBook::ContactBook(){
     // Write implementations here
     // Contact* contacts[MAX_SIZE] is an array of pointers of Contact objects whwere each index is pointing to the address of each object and its name, number
 Contact* ContactBook::Find(string nameOrNumber)const{
-    for(int i=0; i < curr_size; i++){
+    for(int i = 0; i < curr_size; i++){
         if(contacts[i]->getName() == nameOrNumber || contacts[i]->getNumber() == nameOrNumber){
             return contacts[i]; // already a pointer
         }
