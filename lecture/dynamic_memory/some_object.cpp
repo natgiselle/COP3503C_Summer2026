@@ -10,3 +10,4 @@ int main(){
     intPointer = nullptr;
     return 0;
 }
+
