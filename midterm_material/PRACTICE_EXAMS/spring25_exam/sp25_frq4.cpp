@@ -143,8 +143,10 @@
         // RETURN THE OBJECT ITSELF
         String result;
 
+        // DELETE PREVIOUSLY ALLOCATED DATA
         delete[] result.data;
 
+        //
         result.length = this->length + other.length;
 
         result.data = new char[result.length + 1];
