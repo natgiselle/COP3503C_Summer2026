@@ -1,21 +1,79 @@
 /** 
  * LINKEDLIST:
  * 
- * a raw array stores elements in contagious memory
- * a linked list is NON contagious meaning each element
- * just knows where the next one is but doing something
- * to one does NOT affect the rest of the array
+ * CONTIGUOUS: in arrays means elements are sitting right next to each other in memory, address by address
+ * like arr[3] has time complexity of O(1) because it does start address + 3 and jumps to that
  * 
- * each element in a linked list is called a node:
+ * a raw array stores elements in CONTIGUOUS memory
  * 
+ * a linked list is NON CONTIGUOUS meaning each element
+ * just knows where the next one is
+ * meaning elements can live anywhere in the memory
+ * and are CONNECTED: ONLY: THROUGH: POINTERS:
+ * 
+ * NODE: each element in a linked list is called a node
+ * a node is defined in struct Node with two attributes:
+ * a value holding the actual data
+ *  pointer to next node Node* next
+ * since the nodes are randomly stored in memory meaning it is not side by side memory addresses like raw arrays have
+ * 
+ * 
+ * THE WHOLE POINT OF LINKED LISTS IS THERE IS NO SHIFTING NEEDED WHEN REMOVING AND ADDING ELEMENTS
+ * IT HAS A TIME COMPLEXITY OF O(n) when performing the removal or addition of elements/nodes in the linked list
 */
-
+#include <iostream>
+using namespace std;
 class LinkedList{
     private:
     struct Node { // struct is in private of linkedlist and holds data and pointer to next node/element inside the struct
+       int data;
         Node* next;
     };
     Node* head; // head is stored outside of Node struct but has head inside the class itself which is the starting element/node in the linked list
     public:
     LinkedList(): head(nullptr) {} // constructor
+    ~LinkedList() {
+        Node* curr = head; // sets current pointer to point to where head is which is the starting node 
+        // beginning with starting node we will loop through the linked list until it is nullptr to get the next node and savign that value then deleting the allocated memory currently held by curr
+        while(curr != nullptr){
+            Node* temp = curr->next; // save next node before deleting allocated memory on curr
+            delete curr;
+            curr = temp; // DO NOT DELETE CURRENT NODE BEFORE SAVING THE NEXT BCS THEN THERE IS NO CHAINING AND IT WONT WORK
+        }
+    } // destructor filled in later
+
+
+    /** EXERCISES: */
+    void prepend(int val) {
+        /** 
+         * 1. create the newnode with new
+         * 2. set data to val
+         * 3. set its next to head
+         * 4. set head to the new node
+        */
+        Node* newNode = new Node();
+        newNode->data = val;
+        newNode->next = head;
+        head = newNode;
+    }
+    void print() {
+        Node* curr = head;
+        while(curr != nullptr){
+            cout << curr->data << endl;
+            curr = curr->next; // just move the curr node forward to next and make current pointer point to next element/node
+        }
+    }
+    int length() {
+        Node* curr = head;
+        int node_count = 0;
+        while(curr != nullptr){
+            node_count++;
+            curr = curr->next;
+        }
+        return node_count;
+    }
+    bool contains(int val) {
+        
+    }
+    void removeVal(int val) {}
 };
