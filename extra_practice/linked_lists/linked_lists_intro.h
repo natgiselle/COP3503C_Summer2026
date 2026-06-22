@@ -21,8 +21,11 @@
  * THE WHOLE POINT OF LINKED LISTS IS THERE IS NO SHIFTING NEEDED WHEN REMOVING AND ADDING ELEMENTS
  * IT HAS A TIME COMPLEXITY OF O(n) when performing the removal or addition of elements/nodes in the linked list
 */
+#ifndef LINKED_LISTS_INTRO_H
+#define LINKED_LISTS_INTRO_H
 #include <iostream>
 using namespace std;
+
 class LinkedList{
     private:
     struct Node { // struct is in private of linkedlist and holds data and pointer to next node/element inside the struct
@@ -123,3 +126,5 @@ class LinkedList{
         // if we get here val wasnt found and there is nothing to do meaning it does not exist in the linked list to even be deleted in the first place
     }
 };
+
+#endif
