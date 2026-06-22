@@ -44,7 +44,7 @@ class LinkedList{
 
 
     /** EXERCISES: */
-    void prepend(int val) {
+    void prepend(int val) { // prepend means to add a new node element to the linked list and then just moving the next pointer after it to be the head andn thn settin the head ewual to new node
         /** 
          * 1. create the newnode with new
          * 2. set data to val
@@ -72,8 +72,54 @@ class LinkedList{
         }
         return node_count;
     }
-    bool contains(int val) {
-        
+    bool contains(int val) { // checks if it finds a node that has current node ewual to the val passed if not give false if you go to the end without it 
+        Node* curr = head;
+        while(curr != nullptr){
+            if(curr->data == val){
+                return true;
+            }
+            curr = curr->next; // goes to next node
+        }
+        return false;
     }
-    void removeVal(int val) {}
+    void append(int val){ // add a node to the end of the list
+        Node* newNode = new Node();
+        newNode->data = val;
+        Node* curr = head;
+        if(head == nullptr){
+            head = newNode;
+            return;
+        }
+        while(curr->next != nullptr){
+            curr = curr->next;
+        }
+        curr->next = newNode;
+    }
+    void removeVal(int val) {
+        // edge case 1: empty list
+        if(head == nullptr){
+            return;
+        }
+        // edge case 2: the head is the target
+        if(head->data == val){
+            Node* temp = head;
+            head = head->next; // new head is the next node
+            delete temp;
+            return;
+        }
+
+        // general case: traverse with prev and curr;
+        Node* prev = head;
+        Node* curr = head->next;
+        while(curr != nullptr){
+            if(curr->data == val){
+            prev->next = curr->next; // skips over curr
+            delete curr;
+            return;
+            }
+            prev = curr;
+            curr = curr->next;
+        }
+        // if we get here val wasnt found and there is nothing to do meaning it does not exist in the linked list to even be deleted in the first place
+    }
 };
