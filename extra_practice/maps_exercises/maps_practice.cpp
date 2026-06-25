@@ -19,5 +19,23 @@ int main() {
 
     myMap["name"] = "Pikachu"; // key = "name" and we are creating value of "Natalie"
     std::cout << myMap["name"] << std::endl;
+
+/** EXERCISE: 
+ * create a map<string, int>
+ * insert three entries: "apple"-5, "bananas"-3, "oranges"-8
+ * print the values associated with bananas
+*/
+    std::map<std::string, int> fruits;
+    fruits["apple"] = 5;
+    fruits["bananas"] = 3;
+    fruits["oranges"] = 8;
+
+    std::cout << fruits["bananas"] << std::endl;
     return 0;
+
+/** EXERCISE: 
+ * create
+ * 
+ * 
+*/
 }
