@@ -31,11 +31,44 @@ int main() {
     fruits["oranges"] = 8;
 
     std::cout << fruits["bananas"] << std::endl;
-    return 0;
 
 /** EXERCISE: 
- * create
- * 
- * 
+ * create a map<string, string>
+ * inserts "FL"-"Florida", "CA"-"California", "NY"-"New York"
+ * check if the key "TX" exists in the map, if it does print its value, if not print "Not found"
 */
+    std::map<std::string, std::string> states;
+    states.insert({"FL", "Florida"});
+    states.insert({"CA", "California"});
+    states.insert({"NY", "New York"});
+
+
+
+    /** 
+     * FIND:
+     * use map_name.find(key) 
+     * searches for a key in a key-value pair in the map container
+     * if key is found, it returns an iterator to the position where the key is present in the map
+     * if key is NOT found it returns an iterator to the end of the map so it returns .end();
+     * 
+     * the actual type of what find() is:
+     * std::map<std::string, std::string>::iterator
+     * 
+     * using namespace std;
+     * map<string, string>::iterator
+     * 
+     * use iter for iterator in var
+     * */
+    auto iter = states.find("TX");
+    // iterator_name->first is the key
+    // iterator_name->second is the value
+    // states.end() = not found
+    if(iter != states.end()){
+        std::cout << iter->second << std::endl;
+    }
+    else{
+        std::cout << "Not found." << std::endl;
+    }
+
+    return 0;
 }
