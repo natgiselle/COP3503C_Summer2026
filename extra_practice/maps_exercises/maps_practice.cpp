@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+using namespace std;
 
 /** REMINDER: whenever you use anything from an included library you must do std:: for anything from it */
 int main() {
@@ -69,6 +70,31 @@ int main() {
     else{
         std::cout << "Not found." << std::endl;
     }
-
+/** EXERCISE: 
+ * creates a map<string, string>
+ * "key1"-"COP"
+ * "key2"-"aaa"
+ * "key1"-"3503C"
+ * 
+ * if the key already exists, concatenate the new value with a semi colon so "key1" should end up as "COP;3503C"
+ * print all key-value pairs in the map
+ * 
+ * figure out how to detect the duplicate and handle it
+*/
+    map<string, string> coding;
+    coding["key1"] = "COP";
+    coding["key2"] = "aaa";
+    string key = "key1";
+    string value = "3503C";
+    auto it = coding.find(key);
+    if(it != coding.end()){
+        it->second += ";" + string(value); // if key already exists concatenate it to the already existing value attached to the specified key
+    }
+    else {
+        coding[key] = value; // if key doesnt exist, insert a fresh one
+    }
+    for(const auto& pair : coding){
+        cout << pair.first << ": " << pair.second << endl;
+    }
     return 0;
 }
