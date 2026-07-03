@@ -154,3 +154,11 @@ class ABQ {
     }
 
 
+// peek function
+    template <typename T>
+    T ABQ<T>::peek(){
+        if(size_ == 0){
+            throw runtime_error("queue is empty!");
+        }
+        return list_[0];
+    }
