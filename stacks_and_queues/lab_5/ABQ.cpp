@@ -66,3 +66,31 @@ class ABQ {
     }
 
 
+// copy assignment operator
+    template <typename T>
+    ABQ<T>& ABQ<T>::operator=(const ABQ& d){
+        // self-assignment check
+        if(this == &d){
+            return *this;
+        }
+        // delete previously allocated memory
+        delete[] list_;
+
+        // set attributes equal to d's attributes
+        capacity_ = d.capacity_;
+        size_ = d.size_;
+        scale_ = d.scale_;
+
+        // dynamically allocate memory to list_ now that it is empty
+        list_ = new T[capacity_];
+
+        // deep copy d's list_ elements into list_
+        for(unsigned int i = 0; i < size_ ; i++){
+            list_[i] = d.list_[i];
+        }
+        
+        // return actual object by dereferencing this
+        return *this;
+    }
+
+
