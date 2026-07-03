@@ -29,7 +29,7 @@ using namespace std;
 class LinkedList{
     private:
     struct Node { // struct is in private of linkedlist and holds data and pointer to next node/element inside the struct
-       int data;
+        int data;
         Node* next;
     };
     Node* head; // head is stored outside of Node struct but has head inside the class itself which is the starting element/node in the linked list
