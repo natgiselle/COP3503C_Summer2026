@@ -168,3 +168,8 @@ class ABQ {
     unsigned int ABQ<T>::getSize(){
         return size_;
     }
+
+    template <typename T>
+    T* ABQ<T>::getData(){
+        return list_;
+    }
