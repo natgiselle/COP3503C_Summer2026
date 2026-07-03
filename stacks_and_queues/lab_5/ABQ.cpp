@@ -1,18 +1,12 @@
-/**
- * ARRAY-BASED QUEUE:
-*/
-
 #include <iostream>
 using namespace std;
 
 template <typename T>
 class ABQ {
-
     private:
-        // implement your class
-        T* list_; // ptr to dynamic array holding queue data
+    T* list_; // ptr to dynamic array holding queue data
         unsigned int capacity_; // max # of elements the array can hold
-        unsigned size_; // current # of elements in the queue
+        unsigned int size_; // current # of elements in the queue
         float scale_; // resize factor using 2.0f
 
     public:
@@ -21,6 +15,7 @@ class ABQ {
         ABQ(const ABQ& d);              // Copy constructor
         ABQ& operator=(const ABQ& d);   // Copy assignment operator
         ~ABQ();                         // Destructor
+        void resize(unsigned int newCapacity);
 
         void enqueue(T data);           // Add an item to the back of the queue
         T dequeue();                    // Remove and return the front item
@@ -31,14 +26,22 @@ class ABQ {
         T* getData();                   // Return pointer to the internal array
 };
 
-// destructor
+
+// default constructor
     template <typename T>
-    ABQ<T>::~ABQ(){
-        delete[] list_; // delete the dynamically allocated array (pointer to an array called list_ of type T)
+    ABQ<T>::ABQ(){
+        capacity_ = 1;
+        size_ = 0;
+        scale_ = 2.0f;
+        list_ = new T[capacity_];
     }
 
-// default constructor by doing list initializing
+
+// capacity constructor
     template <typename T>
-    ABQ<T>::ABQ(): capacity_(1), size_(0), scale_(2.0f){
+    ABQ<T>::ABQ(int capacity){
+        capacity_ = capacity;
+        size_ = 0;
+        scale_ = 2.0f;
         list_ = new T[capacity_];
     }
