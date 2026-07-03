@@ -62,3 +62,9 @@ class ABS {
     unsigned int ABS<T>::getSize(){
         return size_;
     }
+
+
+    template <typename T>
+    unsigned int ABS<T>::getMaxCapacity(){
+        return capacity_;
+    }
