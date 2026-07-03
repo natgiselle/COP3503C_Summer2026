@@ -101,3 +101,25 @@ class ABS {
             list_[i] = d.list_[i];
         }
     }
+
+
+// copy assignment operator
+    template <typename T>
+    ABS<T>& ABS<T>::operator=(const ABS& d){
+        // self-assignment check
+        if(this == &d){ 
+            return *this;
+        }
+        // delete previously allocated memory to avoid memory leak when going out of scope
+        delete[] list_;
+
+        // same as copy constructor below
+        this->size_ = d.size_;
+        this->capacity_ = d.capacity_;
+        list_ = new T[capacity_]; // total amount of elements it can hold
+        for(unsigned int i = 0; i < size_; i++){
+            list_[i] = d.list_[i];
+        }
+        // return deference of this so its the actual value
+        return *this;
+    }
