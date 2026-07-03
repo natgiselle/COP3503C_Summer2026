@@ -37,4 +37,9 @@ class ABS {
     ABS<T>::~ABS(){
         delete[] list_; // delete the dynamically allocated array (pointer to an array called list_ of type T)
     }
-    
+
+// default constructor by doing list initializing
+    template <typename T>
+    ABS<T>::ABS(): capacity_(1), size_(0), scale_(2.0f){
+        list_ = new T[capacity_];
+    }
