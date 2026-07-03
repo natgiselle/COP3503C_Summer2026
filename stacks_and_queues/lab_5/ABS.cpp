@@ -45,3 +45,20 @@ class ABS {
     ABS<T>::ABS(): capacity_(1), size_(0), scale_(2.0f){
         list_ = new T[capacity_];
     }
+
+
+// parametrized constructor with starting capacity
+    template <typename T>
+    ABS<T>::ABS(unsigned int capacity){
+        capacity_ = capacity;
+        size_ = 0;
+        scale_ = 2.0f;
+        list_ = new T[capacity_];
+    }
+
+
+// getters
+    template <typename T>
+    unsigned int ABS<T>::getSize(){
+        return size_;
+    }
