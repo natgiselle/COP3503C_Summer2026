@@ -88,3 +88,16 @@ class ABS {
         list_ = arr; // reassign the pointer directly
         capacity_ = newCapacity;
     }
+
+
+
+// copy constructor
+    template <typename T>
+    ABS<T>::ABS(const ABS& d){
+        this->size_ = d.size_;
+        this->capacity_ = d.capacity_;
+        list_ = new T[capacity_]; // total amount of elements it can hold
+        for(unsigned int i = 0; i < size_; i++){
+            list_[i] = d.list_[i];
+        }
+    }
