@@ -123,3 +123,15 @@ class ABS {
         // return deference of this so its the actual value
         return *this;
     }
+
+
+// push function
+    template <typename T>
+    void ABS<T>::push(T data){
+        if(size_ == capacity_){
+            unsigned int newCapacity = capacity_ * scale_;
+            resize(newCapacity);
+        }
+        list_[size_] = data;
+        size_++;
+    }
