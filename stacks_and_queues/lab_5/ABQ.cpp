@@ -116,3 +116,16 @@ class ABQ {
     }
 
 
+// enqueue
+    template <typename T>
+        void ABQ<T>::enqueue(T data){
+        if(size_ == capacity_){
+            unsigned int newCapacity = static_cast<unsigned int>(capacity_ * scale_);
+            resize(newCapacity);
+        }
+
+        list_[size_] = data;
+        size_++;
+    }
+
+
