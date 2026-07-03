@@ -94,3 +94,25 @@ class ABQ {
     }
 
 
+// resize function
+    template <typename T>
+    void ABQ<T>::resize(unsigned int newCapacity){
+        if(newCapacity < 1){
+            newCapacity = 1;
+        }
+
+        // new list_
+        T* newList = new T[newCapacity];
+        for(unsigned int i = 0; i < size_; i++){
+            newList[i] = list_[i];
+        }
+        
+        // delete previously allocated memory
+        delete[] list_;
+
+        // set list equal to newList;
+        list_ = newList;
+        capacity_ = newCapacity;
+    }
+
+
