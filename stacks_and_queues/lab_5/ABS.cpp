@@ -74,3 +74,17 @@ class ABS {
     T* ABS<T>::getData(){
         return list_;
     }
+
+
+
+// resize function
+    template <typename T>
+    void ABS<T>::resize(unsigned int newCapacity){
+        T* arr = new T[newCapacity]; // an array that holds elements of type T with size of new capacity
+        for(unsigned int i = 0; i < size_; i++){
+            arr[i] = list_[i];
+        }
+        delete[] list_;
+        list_ = arr; // reassign the pointer directly
+        capacity_ = newCapacity;
+    }
