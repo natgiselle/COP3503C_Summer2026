@@ -162,3 +162,9 @@ class ABQ {
         }
         return list_[0];
     }
+
+// getters
+    template <typename T>
+    unsigned int ABQ<T>::getSize(){
+        return size_;
+    }
