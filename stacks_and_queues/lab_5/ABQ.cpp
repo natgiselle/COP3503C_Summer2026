@@ -129,3 +129,28 @@ class ABQ {
     }
 
 
+// dequeue
+    template <typename T>
+    T ABQ<T>::dequeue(){
+        if(size_ == 0){
+            throw runtime_error("queue is empty!");
+        }
+
+        T front = list_[0];
+        for(unsigned int i = 0; i < size_ -1 ; i++){
+            list_[i] = list_[i + 1]; // this way it ignores the first one and its FIFO (first in first out)
+        }
+        size_--;
+
+        // check if it should resize down
+        if( capacity_ > 1 && (static_cast<float>(size_) / capacity_) < (1.0f / scale_)){
+            unsigned int newCapacity = static_cast<unsigned int>(capacity_ / scale_);
+            if(newCapacity < 1){
+            newCapacity = 1;
+            }
+            resize(newCapacity);
+        }
+        return front;
+    }
+
+
