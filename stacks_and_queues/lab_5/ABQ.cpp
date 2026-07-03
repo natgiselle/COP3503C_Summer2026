@@ -173,3 +173,8 @@ class ABQ {
     T* ABQ<T>::getData(){
         return list_;
     }
+
+    template <typename T>
+    unsigned int ABQ<T>::getMaxCapacity(){
+        return capacity_;
+    }
