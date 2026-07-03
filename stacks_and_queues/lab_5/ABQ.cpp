@@ -31,3 +31,10 @@ class ABS {
         unsigned int getMaxCapacity();
         T* getData();
 };
+
+// destructor
+    template <typename T>
+    ABS<T>::~ABS(){
+        delete[] list_; // delete the dynamically allocated array (pointer to an array called list_ of type T)
+    }
+    
