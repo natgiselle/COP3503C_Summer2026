@@ -45,3 +45,24 @@ class ABQ {
         scale_ = 2.0f;
         list_ = new T[capacity_];
     }
+
+// destructor
+    template <typename T>
+    ABQ<T>::~ABQ(){
+        delete[] list_;
+    }
+
+
+// copy constructor
+    template <typename T>
+    ABQ<T>::ABQ(const ABQ& d){
+        capacity_ = d.capacity_;
+        size_ = d.size_;
+        scale_ = d.scale_;
+        list_ = new T[capacity_];
+        for(unsigned int i = 0; i < size_ ; i++){
+            list_[i] = d.list_[i];
+        }
+    }
+
+
