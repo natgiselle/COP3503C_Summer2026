@@ -61,8 +61,6 @@ DynamicArray& operator=(const DynamicArray& other){
     }
     return *this;
 }
-
-
 // FREEZE CODE BEGIN
 };
 // FREEZE CODE END
