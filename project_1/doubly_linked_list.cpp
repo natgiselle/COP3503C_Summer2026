@@ -47,4 +47,15 @@ class LinkedList{
         tail = newNode;
         count++;
         }
+    // copy constructor
+    LinkedList(const LinkedList<T>& list){
+        head = nullptr;
+        tail = nullptr;
+        count = 0;
+        Node* curr = list.head;
+        while(curr != nullptr){
+        AddTail(curr->data);
+        curr = curr->next;
+        }
+    }
 }; 
