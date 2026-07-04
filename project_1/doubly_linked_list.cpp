@@ -33,4 +33,18 @@ class LinkedList{
         count++; // because we are adding a new node we have to increase count anytime there is new node added to give accurate # of the amount of nodes/elements in the doubly linked list
         }
 
+        void AddTail(const T& value){
+        Node* newNode = new Node();
+        newNode->data = value;
+        newNode->prev = tail;
+        newNode->next = nullptr;
+        if(tail != nullptr){
+            tail->next = newNode;
+        }
+        if(tail == nullptr){
+            head = newNode;
+        }
+        tail = newNode;
+        count++;
+        }
 }; 
