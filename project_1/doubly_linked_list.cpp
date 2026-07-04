@@ -58,4 +58,31 @@ class LinkedList{
         curr = curr->next;
         }
     }
+
+
+    // copy assignment operator
+    LinkedList<T>& operator=(const LinkedList<T>& list){
+        if(this == &list){ // self-assignment
+        return *this;
+        }
+        
+        // delete allocated memory
+        Node* curr = head;
+        while(curr != nullptr){
+            Node* temp = curr;
+            curr = curr->next;
+            delete temp;
+        }
+
+        head = nullptr;
+        tail = nullptr;
+        count = 0;
+
+        Node* other = list.head;
+        while(other != nullptr){
+        AddTail(other->data);
+        other = other->next;
+        }
+        return *this;
+    }
 }; 
