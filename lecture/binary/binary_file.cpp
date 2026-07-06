@@ -30,5 +30,7 @@ int main(){
      */
     fout.write((char*) &intNum, sizeof(intNum)); // write function requires pointer to character because every other data time they are atleast 1byte or more 
     fout.write(reinterpret_cast<char*>(&dNum), sizeof(dNum));
+    fout.write(reinterpret_cast<char*>(&fNum), sizeof(fNum));
+    fout.write(&c, sizeof(c));
     return 0;
 }
