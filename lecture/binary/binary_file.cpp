@@ -16,11 +16,19 @@ int main(){
     char c = 'a';
 
 
+
+
     // 1st param is address of the first byte of the integer (pass the addrs of this first byte into write func)
     // the bytes of the var (4 bytes since it is intNum) you use sizeof operator (it looka st the architecture of yur sysem and it checks how msny bytes it took to be written)
 
     // address of the firsdt byte usig char pointer since a char is 1 byte and we are getting the address of integer by & and putting parenthesis this is a C style conversion we are converting it into a char data type so that its just 1 byte
-    fout.write((char*) &intNum, sizeof(intNum)); // write function requires pointer to character because every other data time they are atleast 1byte or more 
 
+    // we keep writing one integerinto our binry file
+
+    /** FOUT:
+     * is a member function of ofstream and ostream generally used for writing RAW binary data rather than << formatted text
+     */
+    fout.write((char*) &intNum, sizeof(intNum)); // write function requires pointer to character because every other data time they are atleast 1byte or more 
+    fout.write(reinterpret_cast<char*>(&dNum), sizeof(dNum));
     return 0;
 }
