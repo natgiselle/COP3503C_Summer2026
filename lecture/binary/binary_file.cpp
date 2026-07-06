@@ -7,7 +7,7 @@
 using namespace std;
 
 // name of the file or the path of the file
-ofstream fout(s: "binaryFile.o", mode: ios::binary);
+ofstream fout("binaryFile.o", ios::binary);
 
 int intNum = 10;
 double dNum = 2.0;
