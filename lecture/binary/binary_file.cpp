@@ -32,5 +32,8 @@ int main(){
     fout.write(reinterpret_cast<char*>(&dNum), sizeof(dNum));
     fout.write(reinterpret_cast<char*>(&fNum), sizeof(fNum));
     fout.write(&c, sizeof(c));
+
+    // current directory is always the directory of the exectuable whichis binary_file.cpp in this case
+    
     return 0;
 }
