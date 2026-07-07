@@ -9,7 +9,7 @@ using namespace std;
 int main(){
     // name of the file or the path of the file
     ofstream fout("binaryFile.o", ios::binary);
-
+    if (fout.is_open()){
     int intNum = 10;
     double dNum = 2.0;
     float fNum = 3.0;
@@ -34,6 +34,11 @@ int main(){
     fout.write(&c, sizeof(c));
 
     // current directory is always the directory of the exectuable whichis binary_file.cpp in this case
-    
+    }
+
+    else {
+        cout << "Error opening file!" << endl;
+    }
+    fout.close(); // good practice not always necessary
     return 0;
 }
