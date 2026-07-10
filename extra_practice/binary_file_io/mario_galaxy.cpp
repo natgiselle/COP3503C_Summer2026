@@ -50,8 +50,23 @@ int main(){
         galaxyRec1.push_back({"Loopdeeloop Galaxy", 1});
         galaxyRec1.push_back({"Flipswitch Galaxy", 1});
     // can use StructName ObjName = {attribute 1, attribute 2}; to initalize a struct object with its attributes already declared with values 
+    // below is what we call empty initialization which actually makes it do it twice so it is not as efficient as just aggregate initialization
     // galaxyRec1.galaxyName = "Good Egg Galaxy";
     // galaxyRec1.starsCollected = 6;
+    /** OFSTREAM: writes into file */
+    ofstream savefiledata("../out.o", ios::binary); // ensures that it writes in binary
 
+    if(savefiledata.is_open()){
+        for(int i = 0; i < galaxyRec1.size(); i++){
+            // creates new binary object that holds the galaxyName of galaxyRecord object at index i in galaxyRec1 vector
+            ofstream savefiledata((char*)&galaxyRec1[i].galaxyName, (galaxyRec1[i].galaxyName).size());
+        }
+    }
+    else {
+        cout << "Error reading file!" << endl;
+    }
+    
+    
+    
     return 0;
 }
