@@ -99,14 +99,19 @@ int main(){
             // 2. reads from file the string galaxyName attribute of the galaxyRecord struct object at index i of galaxyRec1 vector
             readfiledata.read((char*)&nameLen, sizeof(nameLen)); // bytes of len
 
-            string name; // 3. create a new string since we do not use the already existing values when reading from a file
-            name.resize(nameLen); // 4. must resize for strings
-            readfiledata.read(name.data(), nameLen);
+            // string name; // 3. create a new string since we do not use the already existing values when reading from a file
+           // name.resize(nameLen); // 4. must resize for strings
+
+            char name2[nameLen]; // name2 is a buffer
+            readfiledata.read(name2, nameLen);
+
+            string name = name2;
 
             // reads from file the int starsCollected attribute of the galaxyRecord struct object at index i of galaxyRec1 vector
             int stars;
             readfiledata.read((char*)&stars, sizeof(int));
             
+            // 
             galaxyRec2.push_back({name, stars});
         }   
         // loop 2 to print from the second vector
@@ -114,6 +119,7 @@ int main(){
             cout << "\t" << galaxyRec2[i].galaxyName << ": "; // 2. print out newly created string 
             
             cout << " " << galaxyRec2[i].starsCollected << "★" << endl;
+            cout << endl;
             totalStars += galaxyRec2[i].starsCollected;
         }
         cout << "Total Stars: " << totalStars << "★" << endl;
