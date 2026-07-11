@@ -55,7 +55,7 @@ int main(){
     // galaxyRec1.galaxyName = "Good Egg Galaxy";
     // galaxyRec1.starsCollected = 6;
     /** OFSTREAM: writes into file */
-    ofstream savefiledata("../out.o", ios::binary); // ensures that it writes in binary
+    ofstream savefiledata("out.o", ios::binary); // ensures that it writes in binary
 
     if(savefiledata.is_open()){
         int count = galaxyRec1.size();
