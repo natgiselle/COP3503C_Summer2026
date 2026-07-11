@@ -16,3 +16,11 @@ void WriteStringBinary(fstream& file, const string& str){
     file.write((char*)&len, sizeof(len));
     file.write((char*)str.data(), len);
 }
+
+void WriteLookBinary(fstream& file, const string& designerPiece, int seasonYear){
+    int len = designerPiece.size(); // returns the number of characters and we know that 1 char = 1 byte so the length of the string is equal to the amount of bytes it holds
+    file.write((char*)designerPiece.data(), len);
+
+    file.write((char*)&seasonYear, sizeof(int)); // an int is going to be equal to 4 bytes
+}
+
