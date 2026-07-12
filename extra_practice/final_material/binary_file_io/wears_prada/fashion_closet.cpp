@@ -55,8 +55,15 @@ void ReadLookBinary(fstream& file, string& designerPiece, int& seasonYear){
 }
 
 int main() {
+    // Step 1: Andy logs the runway looks into the archive
     fstream outFile("runway.bin", ios::binary | ios::out);
     
-    
+    WriteLookBinary(outFile, "Cerulean Sweater", 2003);
+    WriteLookBinary(outFile, "Chanel Boots", 2004);
+
+    outFile.close();
+    cout << "Archived 2 looks (runway.bin). That's all." << endl;
+
+
 }
 
