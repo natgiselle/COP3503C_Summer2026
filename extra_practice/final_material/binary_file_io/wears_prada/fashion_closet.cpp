@@ -56,14 +56,40 @@ void ReadLookBinary(fstream& file, string& designerPiece, int& seasonYear){
 
 int main() {
     // Step 1: Andy logs the runway looks into the archive
+    {  // scope block creates a local scope for anything created within it
     fstream outFile("runway.bin", ios::binary | ios::out);
-    
-    WriteLookBinary(outFile, "Cerulean Sweater", 2003);
-    WriteLookBinary(outFile, "Chanel Boots", 2004);
+    if(outFile.is_open()){
+        WriteLookBinary(outFile, "Cerulean Sweater", 2003);
+        WriteLookBinary(outFile, "Chanel Boots", 2004);
+        outFile.close();
+    }
+    else {
+        cout << "Error writing file" << endl;
+        return 1;
+    }
 
-    outFile.close();
     cout << "Archived 2 looks (runway.bin). That's all." << endl;
+    }
 
-
+    // Step 2: Miranda wants the file pulled up now!
+    {
+    fstream inFile("runway.bin", ios::binary | ios::in);
+    if(inFile.is_open()){
+        string look1;
+        string look2;
+        int year1;
+        int year2;
+        ReadLookBinary(inFile, look1, year1);
+        ReadLookBinary(inFile, look2, year2);
+        
+        inFile.close();
+        cout << "Runway Archive: " << endl;
+        cout << "Look 1: " << look1 << " (" << year1 << ")" << endl;
+        cout << "Look 2: " << look2 << " (" << year2 << ")" << endl;
+    }
+    else {
+        cout << "Error reading file." << endl;
+    }
+    }
 }
 
