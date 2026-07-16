@@ -116,3 +116,25 @@ double averageGpa(const std::vector<StudentRecord> &records){
         return 0.0;
     }
 }
+
+bool writeAvgToFile(const std::vector<StudentRecord> &records){
+    // TODO Task D:
+    // Return false if records is empty.
+    // Otherwise, write a formatted GPA report to "report.txt".
+    // Use std::fixed and std::setprecision(2).
+    if(!records.empty()){
+        std::string line;
+        std::ofstream outFile("report.txt");
+        if(outFile.is_open()){
+            outFile << "GPA Report:" << std::endl;
+            outFile << "Average GPA: " << std::fixed << std::setprecision(2) << averageGpa(records) << std::endl;
+        }
+        else {
+            std::cout << "Error opening the file." << std::endl;
+        }
+        return true;
+    }
+    else {
+        return false;
+    }
+}
