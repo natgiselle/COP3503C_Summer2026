@@ -94,3 +94,25 @@ std::vector<StudentRecord> filterByMinimumGpa(const std::vector<StudentRecord> &
     }
     return matches;
 }
+
+double averageGpa(const std::vector<StudentRecord> &records){
+    // TODO Task C:
+    // Return 0.0 if records is empty.
+    // Otherwise, loop through the records vector and calculate the average.
+    // Return the average GPA.
+    double totalGPA = 0;
+    double avgGPA;
+    int recordCount =0;
+    if(!records.empty()){
+        for(int i = 0; i < records.size(); i++){
+            totalGPA += records[i].gpa;
+            recordCount++;
+        }
+        avgGPA = totalGPA / recordCount;
+        return avgGPA;
+    }
+
+    else {
+        return 0.0;
+    }
+}
