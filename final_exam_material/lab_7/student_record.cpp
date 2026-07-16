@@ -61,3 +61,21 @@ std::vector<StudentRecord> loadStudentRecords(std::string filename){
     }
 
 }
+
+
+std::vector<StudentRecord> filterByMajor(const std::vector<StudentRecord> &records, const std::string &major){
+    std::vector<StudentRecord> matches;
+
+    // TODO Task B:
+    // Loop through the records vector.
+    // Check each record major.
+    // Add each record whose major exactly matches the major parameter.
+    // Preserve the original order.
+    for (int i = 0; i < records.size(); i++){
+        if(records[i].major == major){
+            // if it matcheswe want to add it into the end of the vector called matches whhich holds StudentRecord objects
+            matches.push_back(records[i]);
+        }
+    }
+    return matches;
+}
