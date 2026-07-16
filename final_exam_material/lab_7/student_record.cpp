@@ -79,3 +79,18 @@ std::vector<StudentRecord> filterByMajor(const std::vector<StudentRecord> &recor
     }
     return matches;
 }
+
+std::vector<StudentRecord> filterByMinimumGpa(const std::vector<StudentRecord> &records, double minimumGpa){
+    std::vector<StudentRecord> matches;
+
+    // TODO Task B:
+    // Loop through the records vector.
+    // Add each record whose GPA is greater than or equal to minimumGpa.
+    // Preserve the original order.
+    for(int i = 0; i < records.size(); i++){
+        if(records[i].gpa >= minimumGpa){
+        matches.push_back(records[i]);
+        }
+    }
+    return matches;
+}
