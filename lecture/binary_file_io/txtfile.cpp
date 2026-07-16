@@ -1,26 +1,43 @@
 #include <iostream>
 #include <fstream>
-#include <sstream>;
+#include <sstream>
 #include <string>
-using namespace std;
 
 class Student {
     private:
-        string name;
+        std::string name;
         int age;
         double gpa;
 
     public:
+        // default constructo
         Student(){
             name = "Null";
             age = 0;
             gpa = 2.0;
         }
-        Student(string name_, int age_, double gpa_){
+
+        // parametrized constructor
+        Student(std::string name_, int age_, double gpa_){
             name = name_;
             age = age_;
             gpa = gpa_;
         }
+
+        // getters
+        // so that the left side does not change make it constant
+        std::string getName() const {
+            return name;
+        }
+
+        int getAge() const {
+            return age;
+        }
+
+        double getGPA() const {
+            return gpa;
+        }
+        
 };
 
 int main(){
