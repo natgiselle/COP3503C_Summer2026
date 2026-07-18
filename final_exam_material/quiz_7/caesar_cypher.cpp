@@ -32,3 +32,57 @@ This question appeared on 2025 Spring Exam 2.
     You can assume the file given will consist of only uppercase letters, and no whitespace. You can assume the key value passed in will always be between 0 and 26. You cannot assume the file will always exist.
 */
 
+#include <fstream>
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+
+// FREEZE CODE BEGIN
+char shiftChar(char c, int key) {
+    return (c - 'A' + key) % 26 + 'A';
+}
+// FREEZE CODE END
+
+
+// Write readFile and writeFile functions
+vector<char> readFile(const string& filepath){
+    // messageChars is the vector of characters from the message that is being encrypted
+    vector<char> messageChars;
+    ifstream inFile(filepath);
+
+
+    if(inFile.is_open()){
+        string line;
+        while(getline(inFile, line)){
+            for(int i = 0; i < line.size(); i++){
+                messageChars.push_back(line[i]);
+            }
+        }
+        inFile.close(); // need to make this before return bcs then if you write any code after return it will skip it entirely
+        return messageChars;
+    }
+
+    else {
+        cout << "File did not open." << endl;
+        return messageChars;
+    }
+}
+
+
+void writeFile(const string& filepath, vector<char>& v, const int& key){
+    ofstream outFile(filepath);
+    if(outFile.is_open()){
+        for(int i = 0; i < v.size(); i++){
+            outFile << shiftChar(v[i], key);
+        }
+        outFile.close();
+    }
+
+    else {
+        cout << "File did not open." << endl;
+    }
+}
+
+
