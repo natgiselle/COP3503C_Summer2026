@@ -24,7 +24,9 @@ using namespace std;
  * 
  */
 class Animal {
-    protected: // if you define this attribute as protected (it can be modified using the member function) it can be accessed and modified in the other classes
+    protected: // if you define this attribute as protected
+    // (it can be modified using the member function)
+    // it can be accessed and modified in the other classes
     // the dervied clases has access to the base class attributes
         string name;
     public: 
