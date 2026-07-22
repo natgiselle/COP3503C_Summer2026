@@ -6,6 +6,22 @@ using namespace std;
 
 /** INHERITANCE:
  * a derived class that resuses and extends a base class
+ * 
+ * a derived class: "gets/copies" all the data and functionality from the base class
+ * all public member vars and funcs
+ * all protected member vars and funcs
+ * 
+ * pricate data stays private- technically derived class has them but cannot access them
+ * 
+ * the new deerived class can use all the inherited functionality as the base class
+ * 
+ * 
+ * must have "IS A" RELATIONSHIP
+ * a car is a vehicle
+ * a bus is a vehicle
+ * 
+ * a hero is a person but not every person is a hero
+ * 
  */
 class Animal {
     protected: // if you define this attribute as protected (it can be modified using the member function) it can be accessed and modified in the other classes
