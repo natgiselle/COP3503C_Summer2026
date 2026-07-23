@@ -8,7 +8,7 @@ class Animal {
     public:
         Animal(string name_) : name(name_) {}
 
-        void voice(){
+        virtual void voice(){
             cout << "Unidentified voice" << endl;
         }
         void hungry(){
@@ -17,7 +17,8 @@ class Animal {
 };
 
 
-class Cat : public Animal {
+// must add virtual before it to override a virtual function properly from the base class
+class Cat : virtual public Animal {
     int lives;
     public:
     // must use list initializer since string is private only accessible in Animal base class
@@ -27,24 +28,39 @@ class Cat : public Animal {
             lives = lives_;
         }
 
-        // improper polymorphism 
-        void voice(){
+        // improper polymorphism as we should use override keyword
+        void voice() override {
             cout << "Meow :3" << endl;
         }
 };
 
 
-class Dog : public Animal {
+class Dog : virtual public Animal {
     int walks;
     public:
         Dog(string name_, int walks_) : Animal(name_), walks(walks_) {}
 
-        void voice(){
+        void voice() override {
             cout << "Bark :3" << endl;
         }
 
 };
+/** 
+    WITHOUT virtual:          WITH virtual:
+    Animal       Animal          Animal
+        |        |               /    \
+        Cat      Dog          Cat      Dog
+        \         /             \      /
+            Fox                   Fox
+    (two Animals,           (one Animal, owned
+    one per path)           directly by Fox)
+*/
+class Fox: public Cat, public Dog {
+    string diet;
+    public:
+    Fox(string name_, int lives_, int walk_, string diet): Cat(lives_), Dog(walk_) {}
 
+};
 
 int main(){
     Animal animal("Animal");
