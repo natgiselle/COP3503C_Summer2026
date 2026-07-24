@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 // first usage is resolving the diamond proble where it has double copy of base class
 // second usage is to be able to use a base-class pointer to access vars, member funcs from base-class and inherited classes (derived)
@@ -83,7 +84,6 @@ class Fox: public Cat, public Dog {
         cout << "Fox destroyed." << endl;
     }
 };
-
 int main(){
     vector<Animal*> animals;
     animals.push_back(new Cat("gigi", 9));
