@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 // first usage is resolving the diamond proble where it has double copy of base class
 // second usage is to be able to use a base-class pointer to access vars, member funcs from base-class and inherited classes (derived)
@@ -8,11 +9,16 @@ class Animal {
     public:
         Animal(string name_) : name(name_) {}
 
-        virtual void voice(){
-            cout << "Unidentified voice" << endl;
-        }
+        virtual void voice() const = 0;
         void hungry(){
             cout << "Hungry ! :p" << endl;
+        }
+
+
+
+        /** VIRTUAL DESTRUCTOR: */
+        virtual ~Animal(){
+            cout << "Animal destroyed." << endl;
         }
 };
 
@@ -29,8 +35,12 @@ class Cat : virtual public Animal {
         }
 
         // improper polymorphism as we should use override keyword
-        void voice() override {
+        void voice() const override { // IS A CONCRETE CLASS BECAUSE WE OVERRIDE THE PURE VIRTUAL FUNCTION BEING SET TO =0
             cout << "Meow :3" << endl;
+        }
+
+        ~Cat(){
+            cout << "Cat destroyed." << endl;
         }
 };
 
@@ -40,13 +50,19 @@ class Dog : virtual public Animal {
     public:
         Dog(string name_, int walks_) : Animal(name_), walks(walks_) {}
 
-        void voice() override {
+        void voice() const override {
             cout << "Bark :3" << endl;
+        }
+
+        ~Dog(){
+            cout << "Dog destroyed." << endl;
         }
 
 };
 /** 
     WITHOUT virtual:          WITH virtual:
+    DOUBLE ANIMAL
+    AMBIGUOUS
     Animal       Animal          Animal
         |        |               /    \
         Cat      Dog          Cat      Dog
@@ -58,16 +74,16 @@ class Dog : virtual public Animal {
 class Fox: public Cat, public Dog {
     string diet;
     public:
-    Fox(string name_, int lives_, int walk_, string diet): Cat(lives_), Dog(walk_) {}
+    Fox(string name_, int lives_, int walks_, string diet_): Animal(name_), Cat(name_, lives_), Dog(name_, walks_), diet(diet_) {}
+    void voice() const override {
+        cout << "Yowl :3" << endl;
+    }
 
+    ~Fox(){
+        cout << "Fox destroyed." << endl;
+    }
 };
 
 int main(){
-    Animal animal("Animal");
-    Cat cat("Gigi", 9);
-    Dog dog("Thor", 10);
-
-    animal.voice();
-    dog.voice();
-    cat.voice();
+    return 0;
 }
