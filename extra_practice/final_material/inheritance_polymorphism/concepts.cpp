@@ -112,7 +112,8 @@ int main() {
  * either declared directly in the class or inherited from a base class and never overridden.
  * if it contains an unfulfilled = 0, then it is abstract. every pure virtual has been overridden somewhere in the chain it is instantiable.
  * 
- * ABCs abstract base classes
+ * ABCs abstract base classes:
+ * 
  */
 
 
