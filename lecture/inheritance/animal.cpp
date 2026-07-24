@@ -85,5 +85,14 @@ class Fox: public Cat, public Dog {
 };
 
 int main(){
+    vector<Animal*> animals;
+    animals.push_back(new Cat("gigi", 9));
+    animals.push_back(new Dog("thor", 10));
+    animals.push_back(new Fox("pochita", 1, 100, "rabbits"));
+    for(int i = 0; i < animals.size(); i++){
+        animals[i]->hungry(); // calls hungry func for base class and its derived classes
+        animals[i]->voice(); // calls voice func for base class and its dderived classes
+        animals[i]->~Animal(); // calls virtual destructor
+    }
     return 0;
 }
