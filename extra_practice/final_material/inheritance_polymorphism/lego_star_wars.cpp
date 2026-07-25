@@ -149,7 +149,23 @@
  * - Display final status of every droid
  * - Properly delete every pointer, releasing all memory
  */
+#include <iostream>
+#include <string>
+using namespace std;
 
 class Droid {
+    private: // accessible only inside class itself, derived classes can NOT touch it directly, OUTSIDE access requires getter/setter
+        string unitID; // droid unit identifier
     
+    protected: // accessible inside the class itself AND inside any derived classes, NOT accessible outside of code, NOT accessible in unrelated classes or main()
+        int chargeLevel; // Droid, BattleDroid, SecurityDroid, DroidekaUnit can all use this directly
+    
+    public:
+        // EMPTY CONSTRUCTOR
+        Droid(): unitID(""), chargeLevel(100){}
 };
+
+int main() {
+    // Droid d;  if droid is abstract it cannot be instantiated
+   //  d.chargeLevel  error main() is not part of the class heirarchy 
+}
