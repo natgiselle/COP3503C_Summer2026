@@ -185,6 +185,10 @@ class Droid {
             cout << "Unit ID: " << unitID << endl;
             cout << "Charge: " << chargeLevel << endl;
         }
+
+        ~Droid(){
+            cout << "Deletes droid." << endl;
+        }
 };
 
 int main() {
