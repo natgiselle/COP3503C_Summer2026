@@ -163,6 +163,10 @@ class Droid {
     public:
         // EMPTY CONSTRUCTOR
         Droid(): unitID(""), chargeLevel(100){}
+
+        // PARAMETRIZED CONSTRUCTOR
+        Droid(string unitID_, int chargeLevel_): unitID(unitID_), chargeLevel(chargeLevel_) {}
+
 };
 
 int main() {
