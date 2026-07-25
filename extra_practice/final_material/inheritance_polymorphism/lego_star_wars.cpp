@@ -167,6 +167,14 @@ class Droid {
         // PARAMETRIZED CONSTRUCTOR
         Droid(string unitID_, int chargeLevel_): unitID(unitID_), chargeLevel(chargeLevel_) {}
 
+        //  GETTERS
+        string getUnitID(){
+            return unitID;
+        }
+
+        int getChargeLevel(){
+            return chargeLevel;
+        }
 };
 
 int main() {
