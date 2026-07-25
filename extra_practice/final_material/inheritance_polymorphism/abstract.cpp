@@ -19,6 +19,7 @@ class Circle : public Shape {
         }
 };
 /** Shape s; ERROR: object of abstract class type "Shape" is not allowed:
+ * // cannot instantiate from abstract class
 abstract.cpp(21, 7): function "Shape::area" is a pure virtual function */
 int main(){
     Shape* s = new Circle();
