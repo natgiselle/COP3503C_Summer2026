@@ -150,3 +150,6 @@
  * - Properly delete every pointer, releasing all memory
  */
 
+class Droid {
+    
+};
