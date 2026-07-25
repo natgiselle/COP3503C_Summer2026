@@ -180,6 +180,11 @@ class Droid {
         // droid is an abstract class and cannot be instantiated directly as it has atleast ONE pure virtual function and is an unfulfilled =0
         // if a derived class overrides this purely virtual function in its declaration, the derived class will no longer be abstract and will be concrete (can be instantiated directly)
         virtual void engage() = 0; // =0 since it can vary depending on the behaviors of the different droids
+
+        virtual void display(){
+            cout << "Unit ID: " << unitID << endl;
+            cout << "Charge: " << chargeLevel << endl;
+        }
 };
 
 int main() {
