@@ -224,6 +224,12 @@ class SecurityDroid : virtual public Droid {
             cout << "Target Spotted. Activate the Battledroids." << endl;
             targetFound = true;
         }
+
+        void display() override {
+            cout << "Unit ID: " << getUnitID() << endl;
+            cout << "Charge: " << chargeLevel << endl;
+            cout << "Target Found Status: " << targetFound << endl;
+        }
 };
 
 
