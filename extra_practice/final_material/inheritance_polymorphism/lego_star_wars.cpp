@@ -198,6 +198,10 @@ class BattleDroid : virtual public Droid {
         // PARAMETRIZED CONSTRUCTOR
         BattleDroid(string unitID_, int chargeLevel_, int blasterAmmo_): Droid(unitID_, chargeLevel_), blasterAmmo(blasterAmmo_){}
 
+        void engage() override {
+            cout << "Attack Intruder!" << endl;
+        }
+
 };
 
 int main() {
