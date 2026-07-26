@@ -343,4 +343,6 @@ int main() {
         armyOfDroids[i]->display();
         delete armyOfDroids[i];
     }
+
+    return 0;
 }
