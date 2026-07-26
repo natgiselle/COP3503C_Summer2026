@@ -256,6 +256,15 @@ class SecurityDroid : virtual public Droid {
         }
 };
 
+class DroidekaUnit : public BattleDroid, public SecurityDroid {
+    public:
+    // DEFAULT CONSTRUCTOR
+    DroidekaUnit(): BattleDroid(), SecurityDroid() {}
+    
+    // PARAMETRIZED CONSTRUCTOR
+    DroidekaUnit(string unitID_, int chargeLevel_, int blasterAmmo_, bool targetFound_, int shieldStrength_): BattleDroid(unitID_, chargeLevel_, blasterAmmo_), SecurityDroid(unitID_, chargeLevel_, targetFound_, shieldStrength_) {}
+};
+
 int main() {
     // Droid d;  if droid is abstract it cannot be instantiated
    //  d.chargeLevel  error main() is not part of the class heirarchy 
