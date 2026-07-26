@@ -297,10 +297,10 @@ class SecurityDroid : virtual public Droid {
 class DroidekaUnit : public BattleDroid, public SecurityDroid {
     public:
     // DEFAULT CONSTRUCTOR
-    DroidekaUnit(): BattleDroid(), SecurityDroid() {}
+    DroidekaUnit(): Droid(), BattleDroid(), SecurityDroid() {}
     
     // PARAMETRIZED CONSTRUCTOR
-    DroidekaUnit(string unitID_, int chargeLevel_, int blasterAmmo_, bool targetFound_, int shieldStrength_): BattleDroid(unitID_, chargeLevel_, blasterAmmo_), SecurityDroid(unitID_, chargeLevel_, targetFound_, shieldStrength_) {}
+    DroidekaUnit(string unitID_, int chargeLevel_, int blasterAmmo_, bool targetFound_, int shieldStrength_): Droid(unitID_, chargeLevel_), BattleDroid(unitID_, chargeLevel_, blasterAmmo_), SecurityDroid(unitID_, chargeLevel_, targetFound_, shieldStrength_) {}
 
     // override functions
     void engage() override {
@@ -338,11 +338,24 @@ int main() {
     armyOfDroids.push_back(r2d2);
     armyOfDroids.push_back(c3po);
     armyOfDroids.push_back(droideka);
-    for(int i = 0; i < armyOfDroids.size(); i++){
-        armyOfDroids[i]->engage();
-        armyOfDroids[i]->display();
-        delete armyOfDroids[i];
+
+    for(int round = 1; round < 4; round++){
+        cout << endl;
+        cout << "Round " << round << ":" << endl;
+        for(int i = 0; i < armyOfDroids.size(); i++){
+            armyOfDroids[i]->engage();
+        }
     }
+
+
+    for(Droid* droid : armyOfDroids){
+        droid->display();
+    }
+
+    for(Droid* droid : armyOfDroids){
+        delete droid;
+    }
+
 
     return 0;
 }
