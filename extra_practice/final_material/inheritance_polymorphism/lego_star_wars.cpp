@@ -213,15 +213,16 @@ class BattleDroid : virtual public Droid {
 class SecurityDroid : virtual public Droid {
     private:
         bool targetFound;
+        int shieldStrength;
     public:
         // DEFAULT CONSTRUCTOR
-        SecurityDroid(): Droid(), targetFound(false) {}
+        SecurityDroid(): Droid(), targetFound(false), shieldStrength(50) {}
         
         // PARAMETRIZED CONSTRUCTOR
-        SecurityDroid(string unitID_, int chargeLevel_, bool targetFound_): Droid(unitID_, chargeLevel_), targetFound(targetFound_) {}
+        SecurityDroid(string unitID_, int chargeLevel_, bool targetFound_, int shieldStrength_): Droid(unitID_, chargeLevel_), targetFound(targetFound_), shieldStrength(shieldStrength_) {}
 
         void engage() override {
-            cout << "Target Spotted. Activate the Battledroids." << endl;
+            cout << "Target Spotted! Activate Shield." << endl;
             targetFound = true;
         }
 
@@ -231,6 +232,8 @@ class SecurityDroid : virtual public Droid {
             cout << "Target Found Status: " << targetFound << endl;
         }
 };
+
+class
 
 
 int main() {
