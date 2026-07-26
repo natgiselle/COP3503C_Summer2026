@@ -202,6 +202,13 @@ class BattleDroid : virtual public Droid {
         int getBlasterAmmo(){
             return blasterAmmo;
         }
+
+        // SETTERS
+        void setBlasterAmmo(int currBlasterAmmo){
+            blasterAmmo = currBlasterAmmo;
+        }
+
+        // override functions
         void engage() override {
             cout << "Fire on target intruder!" << endl;
             blasterAmmo -=5;
@@ -238,6 +245,16 @@ class SecurityDroid : virtual public Droid {
             return shieldStrength;
         }
 
+        // SETTERS 
+        void setTargetFound(bool currTargetFound){
+            targetFound = currTargetFound;
+        }
+
+        void setShieldStrength(int currShieldStrength){
+            shieldStrength = currShieldStrength;
+        }
+    
+        // override functions
         void engage() override {
             cout << "Target Spotted! Activate Shield." << endl;
             targetFound = true;
@@ -263,6 +280,15 @@ class DroidekaUnit : public BattleDroid, public SecurityDroid {
     
     // PARAMETRIZED CONSTRUCTOR
     DroidekaUnit(string unitID_, int chargeLevel_, int blasterAmmo_, bool targetFound_, int shieldStrength_): BattleDroid(unitID_, chargeLevel_, blasterAmmo_), SecurityDroid(unitID_, chargeLevel_, targetFound_, shieldStrength_) {}
+
+    // override functions
+    void engage() override {
+        cout << "Enemy targetted! Shield and Blaster activated." << endl;
+        getShieldStrength()
+    }
+    void display() override {
+        cout << endl;
+    }
 };
 
 int main() {
