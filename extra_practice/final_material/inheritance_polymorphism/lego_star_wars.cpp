@@ -216,6 +216,9 @@ class SecurityDroid : virtual public Droid {
     public:
         // DEFAULT CONSTRUCTOR
         SecurityDroid(): Droid(), targetFound(false) {}
+        
+        // PARAMETRIZED CONSTRUCTOR
+        SecurityDroid(string unitID_, int chargeLevel_, bool targetFound_): Droid(unitID_, chargeLevel_), targetFound(targetFound_) {}
 
 };
 
