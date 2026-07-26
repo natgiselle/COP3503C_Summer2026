@@ -164,16 +164,12 @@ class Droid {
         // EMPTY CONSTRUCTOR
         Droid(): unitID(""), chargeLevel(100){}
 
-        // PARAMETRIZED CONSTRUCTOR
+        // PARAMETRIZED CONSTRUCTOR: used to initialize private and protected attributes
         Droid(string unitID_, int chargeLevel_): unitID(unitID_), chargeLevel(chargeLevel_) {}
 
         //  GETTERS
         string getUnitID(){
             return unitID;
-        }
-
-        int getChargeLevel(){
-            return chargeLevel;
         }
 
         // PURE VIRTUAL FUNCTION
@@ -196,7 +192,11 @@ class BattleDroid : virtual public Droid {
     private:
         int blasterAmmo;
     public:
+        // DEFAULT CONSTRUCTOR
         BattleDroid(): Droid(), blasterAmmo(10) {}
+        
+        // PARAMETRIZED CONSTRUCTOR
+        BattleDroid(string unitID_, int chargeLevel_, int blasterAmmo_): Droid(unitID_, chargeLevel_), blasterAmmo(blasterAmmo_){}
 
 };
 
