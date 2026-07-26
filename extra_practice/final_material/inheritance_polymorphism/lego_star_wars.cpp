@@ -191,6 +191,15 @@ class Droid {
         }
 };
 
+
+class BattleDroid : virtual public Droid {
+    private:
+        int blasterAmmo;
+    public:
+        BattleDroid(): Droid(), blasterAmmo(10) {}
+
+};
+
 int main() {
     // Droid d;  if droid is abstract it cannot be instantiated
    //  d.chargeLevel  error main() is not part of the class heirarchy 
