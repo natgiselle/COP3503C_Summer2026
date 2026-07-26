@@ -169,7 +169,7 @@ class Droid {
         Droid(string unitID_, int chargeLevel_): unitID(unitID_), chargeLevel(chargeLevel_) {}
 
         //  GETTERS
-        string getUnitID(){
+        string getUnitID() const {
             return unitID;
         }
 
@@ -178,7 +178,7 @@ class Droid {
         // if a derived class overrides this purely virtual function in its declaration, the derived class will no longer be abstract and will be concrete (can be instantiated directly)
         virtual void engage() = 0; // =0 since it can vary depending on the behaviors of the different droids
 
-        virtual void display(){
+        virtual void display() const{
             cout << "Unit ID: " << unitID << endl;
             cout << "Charge: " << chargeLevel << endl;
         }
@@ -200,7 +200,7 @@ class BattleDroid : virtual public Droid {
         BattleDroid(string unitID_, int chargeLevel_, int blasterAmmo_): Droid(unitID_, chargeLevel_), blasterAmmo(blasterAmmo_){}
 
         // GETTERS
-        int getBlasterAmmo(){
+        int getBlasterAmmo() const {
             return blasterAmmo;
         }
 
@@ -213,10 +213,11 @@ class BattleDroid : virtual public Droid {
         void engage() override {
             cout << "Fire on target intruder!" << endl;
             setBlasterAmmo(getBlasterAmmo() - 5);
+            chargeLevel-=5;
+
             if(blasterAmmo <= 0){
                 cout << "No more blaster ammo left. Blaster deactivated." << endl;
                 setBlasterAmmo(0);
-                chargeLevel-=5;
             }
             if(chargeLevel <= 0){
                 cout << "No more charge. BattleDroid deactivated." << endl;
@@ -224,7 +225,7 @@ class BattleDroid : virtual public Droid {
             }
         }
 
-        void display() override {
+        void display() const override {
             cout << "Unit ID: " << getUnitID() << endl;
             cout << "Charge: " << chargeLevel << endl;
             cout << "Blaster Ammo #: " << blasterAmmo << endl;
@@ -247,11 +248,11 @@ class SecurityDroid : virtual public Droid {
         SecurityDroid(string unitID_, int chargeLevel_, bool targetFound_, int shieldStrength_): Droid(unitID_, chargeLevel_), targetFound(targetFound_), shieldStrength(shieldStrength_) {}
 
         // GETTERS
-        bool getTargetFound(){
+        bool getTargetFound()const{
             return targetFound;
         }
 
-        int getShieldStrength(){
+        int getShieldStrength()const{
             return shieldStrength;
         }
 
@@ -273,8 +274,6 @@ class SecurityDroid : virtual public Droid {
             if(shieldStrength <= 0){
                 cout << "No more shield strength. Shield retracted." << endl;
                 setShieldStrength(0);
-                chargeLevel-=5;
-
             }
             if(chargeLevel <= 0){
                 cout << "No more charge. SecurityDroid deactivated." << endl;
@@ -282,7 +281,7 @@ class SecurityDroid : virtual public Droid {
             }
         }
 
-        void display() override {
+        void display() const override {
             cout << "Unit ID: " << getUnitID() << endl;
             cout << "Charge: " << chargeLevel << endl;
             cout << "Target Found Status: " << targetFound << endl;
@@ -314,7 +313,7 @@ class DroidekaUnit : public BattleDroid, public SecurityDroid {
             chargeLevel = 0;
         }
     }
-    void display() override {
+    void display() const override {
             cout << "Unit ID: " << getUnitID() << endl;
             cout << "Charge: " << chargeLevel << endl;
             cout << "Target Found Status: " << getTargetFound() << endl;
