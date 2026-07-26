@@ -220,6 +220,10 @@ class SecurityDroid : virtual public Droid {
         // PARAMETRIZED CONSTRUCTOR
         SecurityDroid(string unitID_, int chargeLevel_, bool targetFound_): Droid(unitID_, chargeLevel_), targetFound(targetFound_) {}
 
+        void engage() override {
+            cout << "Target Spotted. Activate the Battledroids." << endl;
+            targetFound = true;
+        }
 };
 
 
