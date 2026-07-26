@@ -150,6 +150,7 @@
  * - Properly delete every pointer, releasing all memory
  */
 #include <iostream>
+#include <vector>
 #include <string>
 using namespace std;
 
@@ -182,7 +183,7 @@ class Droid {
             cout << "Charge: " << chargeLevel << endl;
         }
 
-        ~Droid(){
+        virtual ~Droid(){
             cout << "Deletes droid." << endl;
         }
 };
@@ -211,10 +212,15 @@ class BattleDroid : virtual public Droid {
         // override functions
         void engage() override {
             cout << "Fire on target intruder!" << endl;
-            blasterAmmo -=5;
+            setBlasterAmmo(getBlasterAmmo() - 5);
             if(blasterAmmo <= 0){
                 cout << "No more blaster ammo left. Blaster deactivated." << endl;
-                blasterAmmo = 0;
+                setBlasterAmmo(0);
+                chargeLevel-=5;
+            }
+            if(chargeLevel <= 0){
+                cout << "No more charge. BattleDroid deactivated." << endl;
+                chargeLevel = 0;
             }
         }
 
@@ -222,6 +228,10 @@ class BattleDroid : virtual public Droid {
             cout << "Unit ID: " << getUnitID() << endl;
             cout << "Charge: " << chargeLevel << endl;
             cout << "Blaster Ammo #: " << blasterAmmo << endl;
+        }
+
+        ~BattleDroid(){
+            cout << "Deletes BattleDroid." << endl;
         }
 };
 
@@ -257,11 +267,18 @@ class SecurityDroid : virtual public Droid {
         // override functions
         void engage() override {
             cout << "Target Spotted! Activate Shield." << endl;
-            targetFound = true;
-            shieldStrength-=10;
+            setShieldStrength(getShieldStrength() - 10);
+            chargeLevel-=5;
+
             if(shieldStrength <= 0){
                 cout << "No more shield strength. Shield retracted." << endl;
-                shieldStrength = 0;
+                setShieldStrength(0);
+                chargeLevel-=5;
+
+            }
+            if(chargeLevel <= 0){
+                cout << "No more charge. SecurityDroid deactivated." << endl;
+                chargeLevel = 0;
             }
         }
 
@@ -270,6 +287,10 @@ class SecurityDroid : virtual public Droid {
             cout << "Charge: " << chargeLevel << endl;
             cout << "Target Found Status: " << targetFound << endl;
             cout << "Shield Strength: " << shieldStrength << endl;
+        }
+
+        ~SecurityDroid(){
+            cout << "Deletes SecurityDroid." << endl;
         }
 };
 
@@ -284,14 +305,42 @@ class DroidekaUnit : public BattleDroid, public SecurityDroid {
     // override functions
     void engage() override {
         cout << "Enemy targetted! Shield and Blaster activated." << endl;
-        getShieldStrength()
+        setTargetFound(true);
+        setShieldStrength(getShieldStrength() - 10);
+        setBlasterAmmo(getBlasterAmmo() - 5);
+        chargeLevel-=5;
+        if(chargeLevel <= 0){
+            cout << "No more charge. DroidekaUnit deactivated." << endl;
+            chargeLevel = 0;
+        }
     }
     void display() override {
-        cout << endl;
+            cout << "Unit ID: " << getUnitID() << endl;
+            cout << "Charge: " << chargeLevel << endl;
+            cout << "Target Found Status: " << getTargetFound() << endl;
+            cout << "Shield Strength: " << getShieldStrength() << endl;
+            cout << "Blaster Ammo #: " << getBlasterAmmo() << endl;
+    }
+
+    ~DroidekaUnit(){
+        cout << "Deletes DroidekaUnit." << endl;
     }
 };
 
 int main() {
     // Droid d;  if droid is abstract it cannot be instantiated
    //  d.chargeLevel  error main() is not part of the class heirarchy 
+    BattleDroid* r2d2 = new BattleDroid("R2D2-#239", 50, 30);
+    SecurityDroid* c3po = new SecurityDroid("C3P0-#392", 100, false, 75);
+    DroidekaUnit* droideka = new DroidekaUnit("J3T0-#924", 230, 200, true, 400);
+
+    vector<Droid*> armyOfDroids;
+    armyOfDroids.push_back(r2d2);
+    armyOfDroids.push_back(c3po);
+    armyOfDroids.push_back(droideka);
+    for(int i = 0; i < armyOfDroids.size(); i++){
+        armyOfDroids[i]->engage();
+        armyOfDroids[i]->display();
+        delete armyOfDroids[i];
+    }
 }
