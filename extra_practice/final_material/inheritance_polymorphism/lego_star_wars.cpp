@@ -202,6 +202,11 @@ class BattleDroid : virtual public Droid {
             cout << "Attack Intruder!" << endl;
         }
 
+        void display() override {
+            cout << "Unit ID: " << getUnitID() << endl;
+            cout << "Charge: " << chargeLevel << endl;
+            cout << "Blaster Ammo #: " << blasterAmmo << endl;
+        }
 };
 
 int main() {
