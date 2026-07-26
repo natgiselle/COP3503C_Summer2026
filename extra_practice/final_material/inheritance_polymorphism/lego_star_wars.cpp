@@ -198,9 +198,17 @@ class BattleDroid : virtual public Droid {
         // PARAMETRIZED CONSTRUCTOR
         BattleDroid(string unitID_, int chargeLevel_, int blasterAmmo_): Droid(unitID_, chargeLevel_), blasterAmmo(blasterAmmo_){}
 
+        // GETTERS
+        int getBlasterAmmo(){
+            return blasterAmmo;
+        }
         void engage() override {
             cout << "Fire on target intruder!" << endl;
             blasterAmmo -=5;
+            if(blasterAmmo <= 0){
+                cout << "No more blaster ammo left. Blaster deactivated." << endl;
+                blasterAmmo = 0;
+            }
         }
 
         void display() override {
@@ -221,20 +229,32 @@ class SecurityDroid : virtual public Droid {
         // PARAMETRIZED CONSTRUCTOR
         SecurityDroid(string unitID_, int chargeLevel_, bool targetFound_, int shieldStrength_): Droid(unitID_, chargeLevel_), targetFound(targetFound_), shieldStrength(shieldStrength_) {}
 
+        // GETTERS
+        bool getTargetFound(){
+            return targetFound;
+        }
+
+        int getShieldStrength(){
+            return shieldStrength;
+        }
+
         void engage() override {
             cout << "Target Spotted! Activate Shield." << endl;
             targetFound = true;
+            shieldStrength-=10;
+            if(shieldStrength <= 0){
+                cout << "No more shield strength. Shield retracted." << endl;
+                shieldStrength = 0;
+            }
         }
 
         void display() override {
             cout << "Unit ID: " << getUnitID() << endl;
             cout << "Charge: " << chargeLevel << endl;
             cout << "Target Found Status: " << targetFound << endl;
+            cout << "Shield Strength: " << shieldStrength << endl;
         }
 };
-
-class
-
 
 int main() {
     // Droid d;  if droid is abstract it cannot be instantiated
