@@ -187,7 +187,7 @@ class Droid {
         }
 };
 
-
+// virtual public Droid for both derived class to avoid duplicate Droid class and avoids diamond problem
 class BattleDroid : virtual public Droid {
     private:
         int blasterAmmo;
@@ -199,7 +199,8 @@ class BattleDroid : virtual public Droid {
         BattleDroid(string unitID_, int chargeLevel_, int blasterAmmo_): Droid(unitID_, chargeLevel_), blasterAmmo(blasterAmmo_){}
 
         void engage() override {
-            cout << "Attack Intruder!" << endl;
+            cout << "Fire on target intruder!" << endl;
+            blasterAmmo -=5;
         }
 
         void display() override {
@@ -208,6 +209,16 @@ class BattleDroid : virtual public Droid {
             cout << "Blaster Ammo #: " << blasterAmmo << endl;
         }
 };
+
+class SecurityDroid : virtual public Droid {
+    private:
+        bool targetFound;
+    public:
+        // DEFAULT CONSTRUCTOR
+        SecurityDroid(): Droid(), targetFound(false) {}
+
+};
+
 
 int main() {
     // Droid d;  if droid is abstract it cannot be instantiated
