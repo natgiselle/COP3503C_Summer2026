@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <unordered_map>
 #include <map>
 
@@ -15,8 +16,19 @@ int main(){
     // wehneve you use regular map data structure, you must loop through 
 
     // can use auto instead when defining something in a loop
+    std::cout << "MAP ITERATOR: " << std::endl;
     for(std::unordered_map<std::string, int>::iterator it = groceries.begin(); it != groceries.end(); ++it){
         std::cout << it->first << ": " << it->second << std::endl; 
     }
-    return 0;
+
+    std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+
+    // array and vector re contigous blocks of memory therefore order matters using index
+    std::cout << "VECTOR ITERATOR: " << std::endl;
+    std::vector<std::string> fruits;
+    fruits.push_back("strawberry");
+    for(std::vector<std::string>::iterator i = fruits.begin(); i != fruits.end(); ++i){
+        std::cout << *i << std::endl; // dereference iterator a iterator is a pointer to the info its iterating thru
+    }
+        return 0;
 }
