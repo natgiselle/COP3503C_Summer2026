@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+using namespace std;
 
 /** 
  * AUTO:
@@ -12,3 +12,25 @@
  * BEST FOR ITERATORS
  * THE WORST FOR BASIC DATA TYPES IT MAKES THE CODE LESS READABLE AND MORE CONFUSING
 */
+
+/** 
+ * FUNCTIONS:
+ * 
+*/
+
+    
+int func(){
+    return 5;
+}
+
+int func2(){
+    return 6;
+}
+
+int main(){
+
+    cout << "func call: " << func() << endl;
+    cout << "func name: " << func << endl;
+    cout <<"func memory address: "<< (void*) func << endl; // gives memory address of the function cast it to void asterisk, it prints 1 for any func with just function name
+    return 0;
+}
