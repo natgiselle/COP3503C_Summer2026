@@ -11,3 +11,13 @@ struct Square{
         return x*x;
     }
 };
+
+class Counter{
+    
+};
+
+int main(){
+    Square square; // makes an object called square
+    square(5); // this looks like calling a function
+    return 0;
+}
